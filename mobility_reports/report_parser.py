@@ -5,12 +5,17 @@ from . import template_to_regexp
 
 class ReportParser:
     def parse(self, text):
-        return {
-            "country": self.parse_country(text),
-            "date": self.parse_date(text),
-            "mobility_changes": self.parse_overall_mobility_changes(text),
-            "regions": self.parse_regions(text),
-        }
+        country = self.parse_country(text)
+        updated_at = self.parse_date(text)
+        overall = self.parse_overall_mobility_changes(text)
+        regions = self.parse_regions(text)
+
+        country_and_regions = [overall] + regions
+        for row in country_and_regions:
+            row["country"] = country
+            row["updated_at"] = updated_at
+
+        return country_and_regions
 
     def parse_country(self, text):
         country, _ = self._parse_country_and_date(text)
@@ -59,7 +64,9 @@ compared to baseline
 
         while region:
             regions.append(region)
-            next_subset_index = text_subset.find(region["name"]) + len(region["name"])
+            next_subset_index = text_subset.find(region["region"]) + len(
+                region["region"]
+            )
             text_subset = text_subset[next_subset_index:]
             region = self._parse_first_region(text_subset)
 
@@ -67,7 +74,7 @@ compared to baseline
 
     def _parse_first_region(self, text):
         template = """
-{name}
+{region}
 Retail & recreation
 Grocery & pharmacy
 Parks
@@ -79,7 +86,7 @@ Transit stations
 Workplace
 Residential
 {transit_stations}% compared to baseline
-{workplace}% compared to baseline
+{workplaces}% compared to baseline
 {residential}% compared to baseline
         """
         data = _extract_groups_from_template(template, text)
@@ -87,9 +94,9 @@ Residential
             return
 
         parsed_data = {
-            key: int(value) / 100 for (key, value) in data.items() if key != "name"
+            key: int(value) / 100 for (key, value) in data.items() if key != "region"
         }
-        parsed_data["name"] = data["name"].strip()
+        parsed_data["region"] = data["region"].strip()
         return parsed_data
 
     def _parse_country_and_date(self, text):
