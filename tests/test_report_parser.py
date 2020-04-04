@@ -23,6 +23,11 @@ class TestReportParser:
             "updated_at": "2020-03-29",
         }
 
+    def test_raise_value_error_if_cant_parse_text(self, gb_fixture):
+        parser = ReportParser()
+        with pytest.raises(ValueError):
+            parser.parse(gb_fixture)
+
     def test_parse_country(self, br_fixture):
         report = ReportParser()
         assert report.parse_country(br_fixture) == "Brazil"

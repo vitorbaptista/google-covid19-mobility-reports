@@ -5,6 +5,12 @@ from . import template_to_regexp
 
 class ReportParser:
     def parse(self, text):
+        if not self._can_parse(text):
+            raise ValueError(
+                "Unable to parse reports with incomplete data."
+                " See issue https://github.com/vitorbaptista/google-covid19-mobility-reports/issues/1."
+            )
+
         country = self.parse_country(text)
         updated_at = self.parse_date(text)
         overall = self.parse_overall_mobility_changes(text)
@@ -116,6 +122,9 @@ Mobility changes
         date = datetime.datetime.strptime(date_str, "%B %d, %Y").date().isoformat()
 
         return country, date
+
+    def _can_parse(self, text):
+        return "Not enough data" not in text
 
 
 def _extract_groups_from_template(template, text):
