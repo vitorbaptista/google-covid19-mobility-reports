@@ -2,7 +2,6 @@ import os
 import pathlib
 import re
 import pytest
-import datetime
 from mobility_reports import ReportParser
 
 
@@ -11,7 +10,7 @@ class TestReportParser:
         parser = ReportParser()
         data = parser.parse(br_fixture)
         assert data['country'] == 'Brazil'
-        assert data['date'] == datetime.date(2020, 3, 29)
+        assert data['date'] == '2020-03-29'
         assert data['mobility_changes']['parks'] == -0.7  # Try a sample
         assert len(data['regions']) == 27
 
@@ -25,8 +24,7 @@ class TestReportParser:
 
     def test_parse_date(self, br_fixture):
         report = ReportParser()
-        expected_date = datetime.date(2020, 3, 29)
-        assert report.parse_date(br_fixture) == expected_date
+        assert report.parse_date(br_fixture) == '2020-03-29'
 
     def test_parse_overall_mobility_changes_br(self, br_fixture):
         expected_data = {

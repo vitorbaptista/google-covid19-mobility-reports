@@ -1,29 +1,67 @@
 COVID-19 Community Mobility Report
 
-Brazil March 29, 2020
+Brazil  March 29, 2020
+
 Mobility changes
+
 Google prepared this report to help you and public health officials understand responses to social
 distancing guidance related to COVID-19. This report shouldn’t be used for medical diagnostic,
 prognostic, or treatment purposes. It also isn’t intended to be used for guidance on personal travel
 plans.
+
 Location accuracy and the understanding of categorized places varies from region to region, so we
 don’t recommend using this data to compare changes between countries, or between regions with
 different characteristics (e.g. rural versus urban areas).
+
 We’ll leave a region out of the report if we don’t have statistically significant levels of data. To learn how
 we calculate these trends and preserve privacy, read About this data.
+
 Retail & recreation
-+80%
 
 -71%
+
 compared to baseline
 
-Mobility trends for places like restaurants,
-cafes, shopping centers, theme parks,
-museums, libraries, and movie theaters.
+Grocery & pharmacy
+
+-35%
+
+compared to baseline
+
+Parks
+
+-70%
+
+compared to baseline
+
++80%
 
 +40%
+
 Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
 Sun Feb 16
@@ -32,61 +70,80 @@ Sun Mar 8
 
 Sun Mar 29
 
-Grocery & pharmacy
-+80%
+Sun Feb 16
 
--35%
-compared to baseline
+Sun Mar 8
+
+Sun Mar 29
+
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
+
+Mobility trends for places like restaurants,
+cafes, shopping centers, theme parks,
+museums, libraries, and movie theaters.
 
 Mobility trends for places like grocery
 markets, food warehouses, farmers
 markets, specialty food shops, drug stores,
 and pharmacies.
 
-+40%
-Baseline
--40%
--80%
-
-Sun Feb 16
-
-Sun Mar 8
-
-Sun Mar 29
-
-Parks
-+80%
-
--70%
-compared to baseline
-
 Mobility trends for places like national parks,
 public beaches, marinas, dog parks, plazas,
 and public gardens.
 
-+40%
-Baseline
--40%
--80%
-
-Sun Feb 16
-
-Sun Mar 8
-
-Sun Mar 29
-
-Transit stations
-+80%
-
--62%
-compared to baseline
-
-Mobility trends for places like public transport
+Mobility trends for places like public transport
 hubs such as subway, bus, and train stations.
 
+Transit stations
+
+-62%
+
+compared to baseline
+
+Workplaces
+
+-34%
+
+compared to baseline
+
+Residential
+
++17%
+
+compared to baseline
+
++80%
+
 +40%
+
 Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
 Sun Feb 16
@@ -94,79 +151,72 @@ Sun Feb 16
 Sun Mar 8
 
 Sun Mar 29
-
-Workplaces
-+80%
-
--34%
-compared to baseline
 
 Mobility trends for places of work.
 
-+40%
-Baseline
--40%
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
-Residential
-+80%
+Sun Feb 16
 
-+17%
-compared to baseline
+Sun Mar 8
+
+Sun Mar 29
 
 Mobility trends for places of residence.
 
-+40%
-Baseline
--40%
--80%
-
-Sun Feb 16
-
-Sun Mar 8
-
-Sun Mar 29
-
 Federal District
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--68% compared to baseline
+-68%  compared to baseline
 
--28% compared to baseline
+-28%  compared to baseline
 
--63% compared to baseline
-
-+80%
-
-+80%
+-63%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -178,19 +228,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -198,39 +246,11 @@ Workplace
 
 Residential
 
--56% compared to baseline
+-56%  compared to baseline
 
--36% compared to baseline
+-36%  compared to baseline
 
-+20% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++20%  compared to baseline
 
 Sun Feb 16
 
@@ -244,56 +264,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Acre
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--68% compared to baseline
+-68%  compared to baseline
 
--20% compared to baseline
+-20%  compared to baseline
 
--56% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-56%  compared to baseline
 
 Sun Feb 16
 
@@ -307,11 +296,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -319,37 +308,11 @@ Workplace
 
 Residential
 
--75% compared to baseline
+-75%  compared to baseline
 
--22% compared to baseline
+-22%  compared to baseline
 
-+11% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++11%  compared to baseline
 
 Sun Feb 16
 
@@ -357,7 +320,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -365,50 +332,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Alagoas
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--77% compared to baseline
+-77%  compared to baseline
 
--43% compared to baseline
+-43%  compared to baseline
 
--79% compared to baseline
-
-+80%
-
-+80%
+-79%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -420,19 +472,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -440,39 +490,11 @@ Workplace
 
 Residential
 
--76% compared to baseline
+-76%  compared to baseline
 
--35% compared to baseline
+-35%  compared to baseline
 
-+17% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++17%  compared to baseline
 
 Sun Feb 16
 
@@ -486,56 +508,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Amapá
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--71% compared to baseline
+-71%  compared to baseline
 
--27% compared to baseline
+-27%  compared to baseline
 
--51% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-51%  compared to baseline
 
 Sun Feb 16
 
@@ -549,11 +540,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -561,37 +552,11 @@ Workplace
 
 Residential
 
--73% compared to baseline
+-73%  compared to baseline
 
--28% compared to baseline
+-28%  compared to baseline
 
-+11% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++11%  compared to baseline
 
 Sun Feb 16
 
@@ -599,7 +564,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -607,50 +576,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Amazonas
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--64% compared to baseline
+-64%  compared to baseline
 
--28% compared to baseline
+-28%  compared to baseline
 
--62% compared to baseline
-
-+80%
-
-+80%
+-62%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -662,19 +716,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -682,39 +734,11 @@ Workplace
 
 Residential
 
--46% compared to baseline
+-46%  compared to baseline
 
--26% compared to baseline
+-26%  compared to baseline
 
-+13% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++13%  compared to baseline
 
 Sun Feb 16
 
@@ -728,56 +752,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Bahia
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--73% compared to baseline
+-73%  compared to baseline
 
--42% compared to baseline
+-42%  compared to baseline
 
--71% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-71%  compared to baseline
 
 Sun Feb 16
 
@@ -791,11 +784,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -803,37 +796,11 @@ Workplace
 
 Residential
 
--73% compared to baseline
+-73%  compared to baseline
 
--33% compared to baseline
+-33%  compared to baseline
 
-+17% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++17%  compared to baseline
 
 Sun Feb 16
 
@@ -841,7 +808,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -849,50 +820,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Ceará
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--76% compared to baseline
+-76%  compared to baseline
 
--34% compared to baseline
+-34%  compared to baseline
 
--71% compared to baseline
-
-+80%
-
-+80%
+-71%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -904,19 +960,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -924,39 +978,11 @@ Workplace
 
 Residential
 
--68% compared to baseline
+-68%  compared to baseline
 
--33% compared to baseline
+-33%  compared to baseline
 
-+16% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++16%  compared to baseline
 
 Sun Feb 16
 
@@ -970,56 +996,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Espírito Santo
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--68% compared to baseline
+-68%  compared to baseline
 
--35% compared to baseline
+-35%  compared to baseline
 
--69% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-69%  compared to baseline
 
 Sun Feb 16
 
@@ -1033,11 +1028,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -1045,37 +1040,11 @@ Workplace
 
 Residential
 
--69% compared to baseline
+-69%  compared to baseline
 
--31% compared to baseline
+-31%  compared to baseline
 
-+16% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++16%  compared to baseline
 
 Sun Feb 16
 
@@ -1083,7 +1052,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -1091,50 +1064,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Goiás
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--67% compared to baseline
+-67%  compared to baseline
 
--27% compared to baseline
+-27%  compared to baseline
 
--44% compared to baseline
-
-+80%
-
-+80%
+-44%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -1146,19 +1204,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -1166,39 +1222,11 @@ Workplace
 
 Residential
 
--50% compared to baseline
+-50%  compared to baseline
 
--28% compared to baseline
+-28%  compared to baseline
 
-+15% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++15%  compared to baseline
 
 Sun Feb 16
 
@@ -1212,56 +1240,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Maranhão
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--63% compared to baseline
+-63%  compared to baseline
 
--27% compared to baseline
+-27%  compared to baseline
 
--48% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-48%  compared to baseline
 
 Sun Feb 16
 
@@ -1275,11 +1272,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -1287,37 +1284,11 @@ Workplace
 
 Residential
 
--66% compared to baseline
+-66%  compared to baseline
 
--20% compared to baseline
+-20%  compared to baseline
 
-+11% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++11%  compared to baseline
 
 Sun Feb 16
 
@@ -1325,7 +1296,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -1333,50 +1308,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Mato Grosso
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--63% compared to baseline
+-63%  compared to baseline
 
--30% compared to baseline
+-30%  compared to baseline
 
--44% compared to baseline
-
-+80%
-
-+80%
+-44%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -1388,19 +1448,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -1408,39 +1466,11 @@ Workplace
 
 Residential
 
--59% compared to baseline
+-59%  compared to baseline
 
--22% compared to baseline
+-22%  compared to baseline
 
-+11% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++11%  compared to baseline
 
 Sun Feb 16
 
@@ -1454,56 +1484,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Mato Grosso do Sul
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--68% compared to baseline
+-68%  compared to baseline
 
--33% compared to baseline
+-33%  compared to baseline
 
--56% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-56%  compared to baseline
 
 Sun Feb 16
 
@@ -1517,11 +1516,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -1529,37 +1528,11 @@ Workplace
 
 Residential
 
--68% compared to baseline
+-68%  compared to baseline
 
--26% compared to baseline
+-26%  compared to baseline
 
-+14% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++14%  compared to baseline
 
 Sun Feb 16
 
@@ -1567,7 +1540,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -1575,50 +1552,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Minas Gerais
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--66% compared to baseline
+-66%  compared to baseline
 
--29% compared to baseline
+-29%  compared to baseline
 
--46% compared to baseline
-
-+80%
-
-+80%
+-46%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -1630,19 +1692,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -1650,39 +1710,11 @@ Workplace
 
 Residential
 
--57% compared to baseline
+-57%  compared to baseline
 
--30% compared to baseline
+-30%  compared to baseline
 
-+15% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++15%  compared to baseline
 
 Sun Feb 16
 
@@ -1696,56 +1728,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Paraná
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--75% compared to baseline
+-75%  compared to baseline
 
--42% compared to baseline
+-42%  compared to baseline
 
--70% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-70%  compared to baseline
 
 Sun Feb 16
 
@@ -1759,11 +1760,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -1771,37 +1772,11 @@ Workplace
 
 Residential
 
--64% compared to baseline
+-64%  compared to baseline
 
--34% compared to baseline
+-34%  compared to baseline
 
-+17% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++17%  compared to baseline
 
 Sun Feb 16
 
@@ -1809,7 +1784,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -1817,50 +1796,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Paraíba
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--76% compared to baseline
+-76%  compared to baseline
 
--36% compared to baseline
+-36%  compared to baseline
 
--73% compared to baseline
-
-+80%
-
-+80%
+-73%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -1872,19 +1936,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -1892,39 +1954,11 @@ Workplace
 
 Residential
 
--64% compared to baseline
+-64%  compared to baseline
 
--33% compared to baseline
+-33%  compared to baseline
 
-+17% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++17%  compared to baseline
 
 Sun Feb 16
 
@@ -1938,56 +1972,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Pará
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--61% compared to baseline
+-61%  compared to baseline
 
--25% compared to baseline
+-25%  compared to baseline
 
--53% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-53%  compared to baseline
 
 Sun Feb 16
 
@@ -2001,11 +2004,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -2013,37 +2016,11 @@ Workplace
 
 Residential
 
--64% compared to baseline
+-64%  compared to baseline
 
--19% compared to baseline
+-19%  compared to baseline
 
-+12% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++12%  compared to baseline
 
 Sun Feb 16
 
@@ -2051,7 +2028,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -2059,50 +2040,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Pernambuco
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--74% compared to baseline
+-74%  compared to baseline
 
--35% compared to baseline
+-35%  compared to baseline
 
--72% compared to baseline
-
-+80%
-
-+80%
+-72%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -2114,19 +2180,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -2134,39 +2198,11 @@ Workplace
 
 Residential
 
--59% compared to baseline
+-59%  compared to baseline
 
--35% compared to baseline
+-35%  compared to baseline
 
-+17% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++17%  compared to baseline
 
 Sun Feb 16
 
@@ -2180,56 +2216,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Piauí
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--71% compared to baseline
+-71%  compared to baseline
 
--39% compared to baseline
+-39%  compared to baseline
 
--49% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-49%  compared to baseline
 
 Sun Feb 16
 
@@ -2243,11 +2248,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -2255,37 +2260,11 @@ Workplace
 
 Residential
 
--76% compared to baseline
+-76%  compared to baseline
 
--27% compared to baseline
+-27%  compared to baseline
 
-+18% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++18%  compared to baseline
 
 Sun Feb 16
 
@@ -2293,7 +2272,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -2301,50 +2284,175 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Rio Grande do Norte
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--74% compared to baseline
+-74%  compared to baseline
 
--36% compared to baseline
+-36%  compared to baseline
 
--74% compared to baseline
-
-+80%
-
-+80%
+-74%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -2356,19 +2464,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -2376,39 +2482,11 @@ Workplace
 
 Residential
 
--66% compared to baseline
+-66%  compared to baseline
 
--33% compared to baseline
+-33%  compared to baseline
 
-+19% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++19%  compared to baseline
 
 Sun Feb 16
 
@@ -2422,56 +2500,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Rio Grande do Sul
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--75% compared to baseline
+-75%  compared to baseline
 
--39% compared to baseline
+-39%  compared to baseline
 
--73% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-73%  compared to baseline
 
 Sun Feb 16
 
@@ -2485,11 +2532,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -2497,37 +2544,11 @@ Workplace
 
 Residential
 
--67% compared to baseline
+-67%  compared to baseline
 
--36% compared to baseline
+-36%  compared to baseline
 
-+20% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++20%  compared to baseline
 
 Sun Feb 16
 
@@ -2535,7 +2556,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -2543,50 +2568,95 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Rio de Janeiro
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--72% compared to baseline
+-72%  compared to baseline
 
--32% compared to baseline
+-32%  compared to baseline
 
--74% compared to baseline
-
-+80%
-
-+80%
+-74%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -2598,19 +2668,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -2618,39 +2686,11 @@ Workplace
 
 Residential
 
--61% compared to baseline
+-61%  compared to baseline
 
--37% compared to baseline
+-37%  compared to baseline
 
-+17% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++17%  compared to baseline
 
 Sun Feb 16
 
@@ -2664,56 +2704,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Rondônia
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--63% compared to baseline
+-63%  compared to baseline
 
--27% compared to baseline
+-27%  compared to baseline
 
--42% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-42%  compared to baseline
 
 Sun Feb 16
 
@@ -2727,11 +2736,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -2739,37 +2748,11 @@ Workplace
 
 Residential
 
--71% compared to baseline
+-71%  compared to baseline
 
--23% compared to baseline
+-23%  compared to baseline
 
-+12% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++12%  compared to baseline
 
 Sun Feb 16
 
@@ -2777,7 +2760,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -2785,50 +2772,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Roraima
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--68% compared to baseline
+-68%  compared to baseline
 
--25% compared to baseline
+-25%  compared to baseline
 
--51% compared to baseline
-
-+80%
-
-+80%
+-51%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -2837,8 +2909,6 @@ Baseline
 Sun Feb 16
 
 Sun Mar 8
-
--80%
 
 Sun Mar 29
 
@@ -2848,11 +2918,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -2860,39 +2930,11 @@ Workplace
 
 Residential
 
--72% compared to baseline
+-72%  compared to baseline
 
--24% compared to baseline
+-24%  compared to baseline
 
-+12% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++12%  compared to baseline
 
 Sun Feb 16
 
@@ -2906,56 +2948,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of Santa Catarina
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--80% compared to baseline
+-80%  compared to baseline
 
--49% compared to baseline
+-49%  compared to baseline
 
--84% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-84%  compared to baseline
 
 Sun Feb 16
 
@@ -2969,11 +2980,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -2981,37 +2992,11 @@ Workplace
 
 Residential
 
--76% compared to baseline
+-76%  compared to baseline
 
--40% compared to baseline
+-40%  compared to baseline
 
-+20% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++20%  compared to baseline
 
 Sun Feb 16
 
@@ -3019,7 +3004,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -3027,50 +3016,135 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Sergipe
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--78% compared to baseline
+-78%  compared to baseline
 
--46% compared to baseline
+-46%  compared to baseline
 
--77% compared to baseline
-
-+80%
-
-+80%
+-77%  compared to baseline
 
 +80%
 
 +40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
 
 Baseline
 
 -40%
 
+-80%
+
++80%
+
++40%
+
+Baseline
+
 -40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
 
 -40%
 
@@ -3082,19 +3156,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -3102,39 +3174,11 @@ Workplace
 
 Residential
 
--83% compared to baseline
+-83%  compared to baseline
 
--36% compared to baseline
+-36%  compared to baseline
 
-+18% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
++18%  compared to baseline
 
 Sun Feb 16
 
@@ -3148,56 +3192,25 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
 State of São Paulo
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--72% compared to baseline
+-72%  compared to baseline
 
--36% compared to baseline
+-36%  compared to baseline
 
--71% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
-
--80%
+-71%  compared to baseline
 
 Sun Feb 16
 
@@ -3211,11 +3224,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -3223,37 +3236,11 @@ Workplace
 
 Residential
 
--62% compared to baseline
+-62%  compared to baseline
 
--37% compared to baseline
+-37%  compared to baseline
 
-+17% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
++17%  compared to baseline
 
 Sun Feb 16
 
@@ -3261,7 +3248,11 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
+Sun Feb 16
+
+Sun Mar 8
+
+Sun Mar 29
 
 Sun Feb 16
 
@@ -3269,54 +3260,99 @@ Sun Mar 8
 
 Sun Mar 29
 
++80%
+
++40%
+
+Baseline
+
+-40%
+
 -80%
 
-Sun Feb 16
++80%
 
-Sun Mar 8
++40%
 
-Sun Mar 29
+Baseline
 
-Sun Mar 29
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
 
 State of Tocantins
+
 Retail & recreation
 
 Grocery & pharmacy
 
 Parks
 
--61% compared to baseline
+-61%  compared to baseline
 
--31% compared to baseline
+-31%  compared to baseline
 
--35% compared to baseline
-
-+80%
-
-+80%
-
-+80%
-
-+40%
-
-+40%
-
-+40%
-
-Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
-
--40%
-
--80%
+-35%  compared to baseline
 
 Sun Feb 16
 
@@ -3324,19 +3360,17 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
+
+Sun Mar 29
 
 Transit stations
 
@@ -3344,37 +3378,69 @@ Workplace
 
 Residential
 
--71% compared to baseline
+-71%  compared to baseline
 
--19% compared to baseline
+-19%  compared to baseline
 
-+11% compared to baseline
-
-+80%
-
-+80%
++11%  compared to baseline
 
 +80%
 
 +40%
 
-+40%
-
-+40%
-
 Baseline
-
-Baseline
-
-Baseline
-
--40%
-
--40%
 
 -40%
 
 -80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
+
+-80%
+
++80%
+
++40%
+
+Baseline
+
+-40%
 
 -80%
 
@@ -3390,13 +3456,9 @@ Sun Mar 8
 
 Sun Mar 29
 
--80%
-
 Sun Feb 16
 
 Sun Mar 8
-
-Sun Mar 29
 
 Sun Mar 29
 
@@ -3411,15 +3473,42 @@ the same kind of aggregated and anonymized
 data used to show popular times for places in
 Google Maps.
 
+Changes for each day are compared to a
+baseline value for that day of the week:
+
+●  The baseline is the median value, for the
+corresponding day of the week, during the 5-
+week period Jan 3–Feb 6, 2020.
+
+●  The reports show trends over several
+weeks with the most recent data representing
+approximately 2-3 days ago—this is how long
+it takes to produce the reports.
+
+What data is included in the calculation
+depends on user settings, connectivity, and
+whether it meets our privacy threshold. If the
+privacy threshold isn’t met (when somewhere
+isn’t busy enough to ensure anonymity) we
+don’t show a change for the day.
+
+We include categories that are useful to
+social distancing efforts as well as access to
+essential services.
+
+We calculate these insights based on data
+from users who have opted-in to Location
+History for their Google Account, so the data
+represents a sample of our users. As with all
+samples, this may or may not represent the
+exact behavior of a wider population.
+
 These reports were developed to be helpful
 while adhering to our stringent privacy
 protocols and protecting people’s privacy. No
 personally identifiable information, like an
 individual’s location, contacts or movement, is
 made available at any point.
-
-Changes for each day are compared to a
-baseline value for that day of the week:
 
 Insights in these reports are created with
 aggregated, anonymized sets of data from
@@ -3431,33 +3520,6 @@ Google Account and can always delete
 Location History data directly from their
 Timeline.
 
-●
-
-The baseline is the median value, for the
-corresponding day of the week, during the 5week period Jan 3–Feb 6, 2020.
-
-●
-
-The reports show trends over several
-weeks with the most recent data representing
-approximately 2-3 days ago—this is how long
-it takes to produce the reports.
-What data is included in the calculation
-depends on user settings, connectivity, and
-whether it meets our privacy threshold. If the
-privacy threshold isn’t met (when somewhere
-isn’t busy enough to ensure anonymity) we
-don’t show a change for the day.
-We include categories that are useful to
-social distancing efforts as well as access to
-essential services.
-We calculate these insights based on data
-from users who have opted-in to Location
-History for their Google Account, so the data
-represents a sample of our users. As with all
-samples, this may or may not represent the
-exact behavior of a wider population.
-
 These reports are powered by the same
 world-class anonymization technology that
 we use in our products every day and that
@@ -3468,6 +3530,7 @@ high quality results without identifying any
 individual person. These privacy-preserving
 protections also ensure that the absolute
 number of visits isn’t shared.
+
 To get the latest report, visit
 google.com/covid19/mobility
 

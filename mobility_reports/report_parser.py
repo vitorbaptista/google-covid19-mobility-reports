@@ -25,32 +25,21 @@ class ReportParser:
 We’ll leave a region out of the report if we don’t have statistically significant levels of data. To learn how
 we calculate these trends and preserve privacy, read About this data.
 Retail & recreation
-+80%
 {retail_and_recreation}%
-compared to baseline
-{IGNORE_LINES}
+compared to baseline{IGNORE_LINES}
 Grocery & pharmacy
-+80%
 {grocery_and_pharmacy}%
-compared to baseline
-{IGNORE_LINES}
+compared to baseline{IGNORE_LINES}
 Parks
-+80%
 {parks}%
-compared to baseline
-{IGNORE_LINES}
-Transit stations
-+80%
+compared to baseline{IGNORE_LINES}
+Transit stations
 {transit_stations}%
-compared to baseline
-{IGNORE_LINES}
+compared to baseline{IGNORE_LINES}
 Workplaces
-+80%
 {workplaces}%
-compared to baseline
-{IGNORE_LINES}
+compared to baseline{IGNORE_LINES}
 Residential
-+80%
 {residential}%
 compared to baseline
         '''.strip()
@@ -119,10 +108,10 @@ Mobility changes
             return
 
         data_parts = data['country_and_date'].split(' ')
-        country = ' '.join(data_parts[:-3])
-        date_str = ' '.join(data_parts[-3:])
+        country = ' '.join(data_parts[:-3]).strip()
+        date_str = ' '.join(data_parts[-3:]).strip()
 
-        date = datetime.datetime.strptime(date_str, '%B %d, %Y').date()
+        date = datetime.datetime.strptime(date_str, '%B %d, %Y').date().isoformat()
         
         return country, date
 
@@ -130,6 +119,7 @@ Mobility changes
 def _extract_groups_from_template(template, text):
     regexp = template_to_regexp(template.strip())
     clean_text = re.sub('\\n\\n+', '\n', text.strip())
+    clean_text = re.sub('  +', ' ', clean_text)
     match = re.search(regexp, clean_text, re.MULTILINE)
     if match:
         return match.groupdict()
