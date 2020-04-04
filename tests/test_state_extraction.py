@@ -15,7 +15,6 @@ class TestTemplateToRegexp:
             'what_do_i_want': 'to break free',
         }
 
-
     @pytest.mark.parametrize('text,number', (
         ('''
 Hello.
@@ -38,4 +37,24 @@ I want {number} things.
         matches = re.match(regexp, text)
         assert matches.groupdict() == {
             'number': number,
+        }
+
+    def test_ignore_multilines(self):
+        """Ignore multilines is non-greedy."""
+        text = '''
+Hello.
+I have another line.
+And another one.
+How are you?
+How are me?
+        '''
+        template = '''
+Hello.
+{IGNORE_LINES}
+How are {who}?
+'''
+        regexp = template_to_regexp(template)
+        matches = re.search(regexp, text, re.MULTILINE)
+        assert matches.groupdict() == {
+            'who': 'you',
         }
