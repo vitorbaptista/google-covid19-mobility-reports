@@ -11,7 +11,7 @@ movement trends over time by geography, across different categories of places
 such as retail and recreation, groceries and pharmacies, parks, transit
 stations, workplaces, and residential."
 
-![report-screenshot.png](https://www.google.com/covid19/mobility/static/image.png "Louisiana's Community Mobility Report shows a 45% decrease in visits to places like restaurants and shopping centers and a 16% decrease in visits to places like groceries and pharmacies since January.")
+![https://www.google.com/covid19/mobility/](report-screenshot.png "Louisiana's Community Mobility Report shows a 45% decrease in visits to places like restaurants and shopping centers and a 16% decrease in visits to places like groceries and pharmacies since January.")
 
 This data is very interesting and important during these times. However, it's
 only available as a PDF per country (or per State in the USA). This project has
@@ -27,4 +27,3 @@ two goals:
   * Not all reports were converted to CSVs yet
 
 [google-reports]: https://www.google.com/covid19/mobility/
-This repository contains a copy of all 
