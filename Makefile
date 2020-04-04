@@ -11,7 +11,7 @@ Makefile.reports.mk: data/processed/reports_urls.txt
 
 data/processed/reports_urls.txt: data/raw/html/$(DATE).html
 	grep -oE 'http.*gstatic.*pdf' $< >> $@
-	sort $@ -o $@
+	sort --unique $@ -o $@
 
 data/raw/html/$(DATE).html:
 	curl https://www.google.com/covid19/mobility/ -Lo $@
