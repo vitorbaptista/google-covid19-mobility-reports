@@ -3,7 +3,7 @@ on:
   watch:
     types: [started]
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 12 * * *'
 
 jobs:
   build:
@@ -19,3 +19,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git commit -m "Update reports" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
