@@ -17,6 +17,6 @@ data/raw/html/$(DATE).html:
 	curl https://www.google.com/covid19/mobility/ -Lo $@
 
 data/processed/mobility_reports.csv: reports
-	PYTHONPATH=. python mobility_reports/cli.py data/raw/reports/*.pdf > $@
+	PYTHONPATH=. python3 mobility_reports/cli.py data/raw/reports/*.pdf > $@
 
 -include Makefile.reports.mk
