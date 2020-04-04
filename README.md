@@ -23,7 +23,17 @@ two goals:
 ## Where is the data?
 
 * Raw PDF reports: [data/raw/reports](data/raw/reports)
-* Reports converted to CSV: [data/processed/reports](data/processed/reports)
-  * Not all reports were converted to CSVs yet
+* Reports converted to CSV: [data/processed/mobility_reports.csv](data/processed/mobility_reports.csv)
+
+## How reliable is the data?
+
+I've been very careful in checking that the data in the CSV corresponds to the
+data in the PDF. There are tests to reduce the possibility of bugs being
+introduced, and I manually checked a few of the results.
+
+That being said, there are no guarantees that the data is error-free. I
+recommend double checking the CSV with the raw PDFs if you want to be sure. If
+you find any errors, please [create an issue][new-issue].
 
 [google-reports]: https://www.google.com/covid19/mobility/
+[new-issue]: https://github.com/vitorbaptista/google-covid19-mobility-reports/issues

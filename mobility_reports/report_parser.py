@@ -37,27 +37,22 @@ We’ll leave a region out of the report if we don’t have statistically signif
 we calculate these trends and preserve privacy, read About this data.
 Retail & recreation
 +80%
-{retail_and_recreation}%
-compared to baseline{IGNORE_LINES}
+{retail_and_recreation}%{IGNORE_LINES}
 Grocery & pharmacy
 +80%
-{grocery_and_pharmacy}%
-compared to baseline{IGNORE_LINES}
+{grocery_and_pharmacy}%{IGNORE_LINES}
 Parks
 +80%
-{parks}%
-compared to baseline{IGNORE_LINES}
+{parks}%{IGNORE_LINES}
 Transit stations
 +80%
-{transit_stations}%
-compared to baseline{IGNORE_LINES}
+{transit_stations}%{IGNORE_LINES}
 Workplaces
 +80%
-{workplaces}%
-compared to baseline{IGNORE_LINES}
+{workplaces}%{IGNORE_LINES}
 Residential
 +80%
-{residential}%
+{residential}%{IGNORE_LINES}
 compared to baseline
         """.strip()
 

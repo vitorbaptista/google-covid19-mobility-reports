@@ -66,6 +66,32 @@ class TestReportParser:
         data = parser.parse_overall_mobility_changes(gb_fixture)
         assert data == expected_data
 
+    def test_parse_overall_mobility_changes_cz(self, cz_fixture):
+        expected_data = {
+            "retail_and_recreation": -0.73,
+            "grocery_and_pharmacy": -0.26,
+            "parks": -0.24,
+            "transit_stations": -0.61,
+            "workplaces": -0.31,
+            "residential": 0.11,
+        }
+        parser = ReportParser()
+        data = parser.parse_overall_mobility_changes(cz_fixture)
+        assert data == expected_data
+
+    def test_parse_overall_mobility_changes_kr(self, kr_fixture):
+        expected_data = {
+            "retail_and_recreation": -0.19,
+            "grocery_and_pharmacy": 0.11,
+            "parks": 0.51,
+            "transit_stations": -0.17,
+            "workplaces": -0.12,
+            "residential": 0.06,
+        }
+        parser = ReportParser()
+        data = parser.parse_overall_mobility_changes(kr_fixture)
+        assert data == expected_data
+
     def test_parse_regions(self, br_fixture):
         expected_data = [
             {
@@ -347,19 +373,26 @@ class TestReportParser:
 
 @pytest.fixture(scope="session")
 def br_fixture():
-    path = (
-        pathlib.Path(__file__).parent / "fixtures/2020-03-29_BR_Mobility_Report_en.txt"
-    )
-    with open(path, "rt") as fp:
-        contents = fp.read()
-    return contents
+    return _read_fixture("2020-03-29_BR_Mobility_Report_en.txt")
 
 
 @pytest.fixture(scope="session")
 def gb_fixture():
-    path = (
-        pathlib.Path(__file__).parent / "fixtures/2020-03-29_GB_Mobility_Report_en.txt"
-    )
+    return _read_fixture("2020-03-29_GB_Mobility_Report_en.txt")
+
+
+@pytest.fixture(scope="session")
+def cz_fixture():
+    return _read_fixture("2020-03-29_CZ_Mobility_Report_en.txt")
+
+
+@pytest.fixture(scope="session")
+def kr_fixture():
+    return _read_fixture("2020-03-29_KR_Mobility_Report_en.txt")
+
+
+def _read_fixture(name):
+    path = pathlib.Path(__file__).parent / f"fixtures/{name}"
     with open(path, "rt") as fp:
         contents = fp.read()
     return contents
