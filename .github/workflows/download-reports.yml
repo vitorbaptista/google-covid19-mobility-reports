@@ -9,6 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Install pdftotext
+        run: sudo apt-get install poppler-utils
       - uses: actions/checkout@master
         with:
           fetch-depth: 1
