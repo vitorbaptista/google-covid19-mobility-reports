@@ -46,7 +46,7 @@ class TestReportParser:
         data = parser.parse_overall_mobility_changes(gb_fixture)
         assert data == expected_data
 
-    def test_parse_districts(self, br_fixture):
+    def test_parse_regions(self, br_fixture):
         expected_data = [
             {'retail_and_recreation': -0.68, 'grocery_and_pharmacy': -0.28, 'parks': -0.63, 'transit_stations': -0.56, 'workplace': -0.36, 'residential': 0.2, 'name': 'Federal District'},
             {'retail_and_recreation': -0.68, 'grocery_and_pharmacy': -0.2, 'parks': -0.56, 'transit_stations': -0.75, 'workplace': -0.22, 'residential': 0.11, 'name': 'State of Acre'},
@@ -77,7 +77,7 @@ class TestReportParser:
             {'retail_and_recreation': -0.61, 'grocery_and_pharmacy': -0.31, 'parks': -0.35, 'transit_stations': -0.71, 'workplace': -0.19, 'residential': 0.11, 'name': 'State of Tocantins'}
         ]
         parser = ReportParser()
-        data = parser.parse_districts(br_fixture)
+        data = parser.parse_regions(br_fixture)
 
         assert data == expected_data
 

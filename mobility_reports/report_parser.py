@@ -57,21 +57,21 @@ compared to baseline
         }
         return parsed_data
 
-    def parse_districts(self, text):
-        districts = []
+    def parse_regions(self, text):
+        regions = []
 
         text_subset = text
-        district = self._parse_first_district(text_subset)
+        region = self._parse_first_region(text_subset)
 
-        while district:
-            districts.append(district)
-            next_subset_index = text_subset.find(district['name']) + len(district['name'])
+        while region:
+            regions.append(region)
+            next_subset_index = text_subset.find(region['name']) + len(region['name'])
             text_subset = text_subset[next_subset_index:]
-            district = self._parse_first_district(text_subset)
+            region = self._parse_first_region(text_subset)
 
-        return districts
+        return regions
 
-    def _parse_first_district(self, text):
+    def _parse_first_region(self, text):
         template = '''
 {name}
 Retail & recreation
