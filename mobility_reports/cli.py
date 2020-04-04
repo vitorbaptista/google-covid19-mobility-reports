@@ -1,7 +1,7 @@
 import argparse
 import sys
 import csv
-from pdfminer.high_level import extract_text
+import subprocess
 from mobility_reports import ReportParser
 
 
@@ -10,10 +10,7 @@ def parse_args():
         description="Convert Google COVID-19 mobility reports to JSON."
     )
     parser.add_argument(
-        "report_file",
-        type=argparse.FileType("rb"),
-        default=sys.stdin,
-        help="Google COVID-19 mobility report PDF file",
+        "report_path", help="Google COVID-19 mobility report PDF file path",
     )
 
     return parser.parse_args()
@@ -39,7 +36,9 @@ def write_as_csv(data, output):
 
 def main():
     args = parse_args()
-    text = extract_text(args.report_file)
+    text = subprocess.check_output(
+        ["pdftotext", args.report_path, "-"], universal_newlines=True
+    )
     parser = ReportParser()
     data = parser.parse(text)
 

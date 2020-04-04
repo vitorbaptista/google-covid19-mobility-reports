@@ -36,21 +36,27 @@ class ReportParser:
 We’ll leave a region out of the report if we don’t have statistically significant levels of data. To learn how
 we calculate these trends and preserve privacy, read About this data.
 Retail & recreation
++80%
 {retail_and_recreation}%
 compared to baseline{IGNORE_LINES}
 Grocery & pharmacy
++80%
 {grocery_and_pharmacy}%
 compared to baseline{IGNORE_LINES}
 Parks
++80%
 {parks}%
 compared to baseline{IGNORE_LINES}
-Transit stations
+Transit stations
++80%
 {transit_stations}%
 compared to baseline{IGNORE_LINES}
 Workplaces
++80%
 {workplaces}%
 compared to baseline{IGNORE_LINES}
 Residential
++80%
 {residential}%
 compared to baseline
         """.strip()
