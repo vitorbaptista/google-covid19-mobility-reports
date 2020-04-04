@@ -6,10 +6,10 @@ from . import template_to_regexp
 class ReportParser:
     def parse(self, text):
         return {
-            'country': self.parse_country(text),
-            'date': self.parse_date(text),
-            'mobility_changes': self.parse_overall_mobility_changes(text),
-            'regions': self.parse_regions(text),
+            "country": self.parse_country(text),
+            "date": self.parse_date(text),
+            "mobility_changes": self.parse_overall_mobility_changes(text),
+            "regions": self.parse_regions(text),
         }
 
     def parse_country(self, text):
@@ -21,7 +21,7 @@ class ReportParser:
         return date
 
     def parse_overall_mobility_changes(self, text):
-        template = '''
+        template = """
 We’ll leave a region out of the report if we don’t have statistically significant levels of data. To learn how
 we calculate these trends and preserve privacy, read About this data.
 Retail & recreation
@@ -42,16 +42,13 @@ compared to baseline{IGNORE_LINES}
 Residential
 {residential}%
 compared to baseline
-        '''.strip()
+        """.strip()
 
         data = _extract_groups_from_template(template, text)
         if not data:
             return
 
-        parsed_data = {
-            key: int(value) / 100
-            for (key, value) in data.items()
-        }
+        parsed_data = {key: int(value) / 100 for (key, value) in data.items()}
         return parsed_data
 
     def parse_regions(self, text):
@@ -62,14 +59,14 @@ compared to baseline
 
         while region:
             regions.append(region)
-            next_subset_index = text_subset.find(region['name']) + len(region['name'])
+            next_subset_index = text_subset.find(region["name"]) + len(region["name"])
             text_subset = text_subset[next_subset_index:]
             region = self._parse_first_region(text_subset)
 
         return regions
 
     def _parse_first_region(self, text):
-        template = '''
+        template = """
 {name}
 Retail & recreation
 Grocery & pharmacy
@@ -84,42 +81,40 @@ Residential
 {transit_stations}% compared to baseline
 {workplace}% compared to baseline
 {residential}% compared to baseline
-        '''
+        """
         data = _extract_groups_from_template(template, text)
         if not data:
             return
 
         parsed_data = {
-            key: int(value) / 100
-            for (key, value) in data.items()
-            if key != 'name'
+            key: int(value) / 100 for (key, value) in data.items() if key != "name"
         }
-        parsed_data['name'] = data['name'].strip()
+        parsed_data["name"] = data["name"].strip()
         return parsed_data
 
     def _parse_country_and_date(self, text):
-        template = '''
+        template = """
 COVID-19 Community Mobility Report
 {country_and_date}
 Mobility changes
-        '''.strip()
+        """.strip()
         data = _extract_groups_from_template(template, text)
         if not data:
             return
 
-        data_parts = data['country_and_date'].split(' ')
-        country = ' '.join(data_parts[:-3]).strip()
-        date_str = ' '.join(data_parts[-3:]).strip()
+        data_parts = data["country_and_date"].split(" ")
+        country = " ".join(data_parts[:-3]).strip()
+        date_str = " ".join(data_parts[-3:]).strip()
 
-        date = datetime.datetime.strptime(date_str, '%B %d, %Y').date().isoformat()
-        
+        date = datetime.datetime.strptime(date_str, "%B %d, %Y").date().isoformat()
+
         return country, date
 
 
 def _extract_groups_from_template(template, text):
     regexp = template_to_regexp(template.strip())
-    clean_text = re.sub('\\n\\n+', '\n', text.strip())
-    clean_text = re.sub('  +', ' ', clean_text)
+    clean_text = re.sub("\\n\\n+", "\n", text.strip())
+    clean_text = re.sub("  +", " ", clean_text)
     match = re.search(regexp, clean_text, re.MULTILINE)
     if match:
         return match.groupdict()
