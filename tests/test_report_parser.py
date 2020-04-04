@@ -7,6 +7,14 @@ from mobility_reports import ReportParser
 
 
 class TestReportParser:
+    def test_parse(self, br_fixture):
+        parser = ReportParser()
+        data = parser.parse(br_fixture)
+        assert data['country'] == 'Brazil'
+        assert data['date'] == datetime.date(2020, 3, 29)
+        assert data['mobility_changes']['parks'] == -0.7  # Try a sample
+        assert len(data['regions']) == 27
+
     def test_parse_country(self, br_fixture):
         report = ReportParser()
         assert report.parse_country(br_fixture) == 'Brazil'

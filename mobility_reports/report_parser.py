@@ -4,6 +4,14 @@ from . import template_to_regexp
 
 
 class ReportParser:
+    def parse(self, text):
+        return {
+            'country': self.parse_country(text),
+            'date': self.parse_date(text),
+            'mobility_changes': self.parse_overall_mobility_changes(text),
+            'regions': self.parse_regions(text),
+        }
+
     def parse_country(self, text):
         country, _ = self._parse_country_and_date(text)
         return country
