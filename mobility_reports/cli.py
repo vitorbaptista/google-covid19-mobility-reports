@@ -27,6 +27,12 @@ def write_as_csv(data, output):
         "transit_stations",
         "workplaces",
         "residential",
+        "retail_and_recreation_not_enough_data",
+        "grocery_and_pharmacy_not_enough_data",
+        "parks_not_enough_data",
+        "transit_stations_not_enough_data",
+        "workplaces_not_enough_data",
+        "residential_not_enough_data",
     ]
     csvwriter = csv.DictWriter(output, fieldnames=fieldnames)
     csvwriter.writeheader()
@@ -43,7 +49,7 @@ def main():
     all_data = []
     for report_path in args.report_paths:
         text = subprocess.check_output(
-            ["pdftotext", report_path, "-"], universal_newlines=True
+            ["pdftotext", "-layout", report_path, "-"], universal_newlines=True
         )
         parser = ReportParser()
         try:

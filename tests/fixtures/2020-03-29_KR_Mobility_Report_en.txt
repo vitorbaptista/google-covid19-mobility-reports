@@ -1,210 +1,157 @@
-COVID-19 Community Mobility Report
+                                                                       COVID-19 Community Mobility Report
+
 
 South Korea March 29, 2020
+
 Mobility changes
 Google prepared this report to help you and public health officials understand responses to social
 distancing guidance related to COVID-19. This report shouldn’t be used for medical diagnostic,
 prognostic, or treatment purposes. It also isn’t intended to be used for guidance on personal travel
 plans.
+
 Location accuracy and the understanding of categorized places varies from region to region, so we
 don’t recommend using this data to compare changes between countries, or between regions with
 different characteristics (e.g. rural versus urban areas).
+
 We’ll leave a region out of the report if we don’t have statistically significant levels of data. To learn how
 we calculate these trends and preserve privacy, read About this data.
+
+
 Retail & recreation
-+80%
+                               +80%
+                                                                          Mobility trends for places like restaurants,
+
 
 -19%
-compared to baseline
+                               +40%                                       cafes, shopping centers, theme parks,
+                                                                          museums, libraries, and movie theaters.
+                             Baseline
 
-Mobility trends for places like restaurants,
-cafes, shopping centers, theme parks,
-museums, libraries, and movie theaters.
+                                -40%
 
-+40%
-Baseline
--40%
--80%
+compared to baseline            -80%
+                                 Sun Feb 16   Sun Mar 8   Sun Mar 29
 
-Sun Feb 16
 
-Sun Mar 8
 
-Sun Mar 29
 
 Grocery & pharmacy
-+80%
+                               +80%
+                                                                          Mobility trends for places like grocery
+
 
 +11%
+                               +40%                                       markets, food warehouses, farmers
+                                                                          markets, specialty food shops, drug stores,
+                             Baseline
+                                                                          and pharmacies.
+                                -40%
 
-Baseline
+compared to baseline            -80%
+                                 Sun Feb 16   Sun Mar 8   Sun Mar 29
 
-compared to baseline
 
--80%
 
-Mobility trends for places like grocery
-markets, food warehouses, farmers
-markets, specialty food shops, drug stores,
-and pharmacies.
-
-+40%
-
--40%
-Sun Feb 16
-
-Sun Mar 8
-
-Sun Mar 29
 
 Parks
-+80%
+                               +80%
+                                                                          Mobility trends for places like national parks,
+
 
 +51%
-compared to baseline
+                               +40%                                       public beaches, marinas, dog parks, plazas,
+                                                                          and public gardens.
+                             Baseline
 
-Mobility trends for places like national parks,
-public beaches, marinas, dog parks, plazas,
-and public gardens.
+                                -40%
 
-+40%
-Baseline
--40%
--80%
-
-Sun Feb 16
-
-Sun Mar 8
-
-Sun Mar 29
-
+compared to baseline            -80%
+                                 Sun Feb 16   Sun Mar 8   Sun Mar 29
 Transit stations
-+80%
+                         +80%
+                                                                 Mobility trends for places like public transport
+
 
 -17%
-compared to baseline
+                         +40%                                    hubs such as subway, bus, and train stations.
+                       Baseline
 
-Mobility trends for places like public transport
-hubs such as subway, bus, and train stations.
+                          -40%
 
-+40%
-Baseline
--40%
--80%
+compared to baseline      -80%
+                           Sun Feb 16   Sun Mar 8   Sun Mar 29
 
-Sun Feb 16
 
-Sun Mar 8
 
-Sun Mar 29
 
 Workplaces
-+80%
+                         +80%
+                                                                 Mobility trends for places of work.
+
 
 -12%
-compared to baseline
+                         +40%
 
-Mobility trends for places of work.
+                       Baseline
 
-+40%
-Baseline
--40%
--80%
+                          -40%
 
-Sun Feb 16
+compared to baseline      -80%
+                           Sun Feb 16   Sun Mar 8   Sun Mar 29
 
-Sun Mar 8
 
-Sun Mar 29
+
 
 Residential
-+80%
+                         +80%
+                                                                 Mobility trends for places of residence.
+
 
 +6%
-compared to baseline
+                         +40%
 
-Mobility trends for places of residence.
+                       Baseline
 
-+40%
-Baseline
--40%
--80%
+                          -40%
 
-Sun Feb 16
+compared to baseline      -80%
+                           Sun Feb 16   Sun Mar 8   Sun Mar 29
+About this data                                  Preserving privacy
+These reports show how visits and length of      These reports were developed to be helpful
+stay at different places change compared to      while adhering to our stringent privacy
+a baseline. We calculate these changes using     protocols and protecting people’s privacy. No
+the same kind of aggregated and anonymized       personally identifiable information, like an
+data used to show popular times for places in    individual’s location, contacts or movement, is
+Google Maps.                                     made available at any point.
 
-Sun Mar 8
-
-Sun Mar 29
-
-About this data
-
-Preserving privacy
-
-These reports show how visits and length of
-stay at different places change compared to
-a baseline. We calculate these changes using
-the same kind of aggregated and anonymized
-data used to show popular times for places in
-Google Maps.
-
-These reports were developed to be helpful
-while adhering to our stringent privacy
-protocols and protecting people’s privacy. No
-personally identifiable information, like an
-individual’s location, contacts or movement, is
-made available at any point.
-
-Changes for each day are compared to a
-baseline value for that day of the week:
-
-Insights in these reports are created with
-aggregated, anonymized sets of data from
-users who have turned on the Location
-History setting, which is off by default. People
-who have Location History turned on can
-choose to turn it off at any time from their
-Google Account and can always delete
-Location History data directly from their
-Timeline.
-
-●
-
-The baseline is the median value, for the
-corresponding day of the week, during the 5week period Jan 3–Feb 6, 2020.
-
-●
-
-The reports show trends over several
-weeks with the most recent data representing
+Changes for each day are compared to a           Insights in these reports are created with
+baseline value for that day of the week:         aggregated, anonymized sets of data from
+                                                 users who have turned on the Location
+●   The baseline is the median value, for the    History setting, which is off by default. People
+corresponding day of the week, during the 5-     who have Location History turned on can
+week period Jan 3–Feb 6, 2020.                   choose to turn it off at any time from their
+                                                 Google Account and can always delete
+●    The reports show trends over several        Location History data directly from their
+weeks with the most recent data representing     Timeline.
 approximately 2-3 days ago—this is how long
-it takes to produce the reports.
-What data is included in the calculation
-depends on user settings, connectivity, and
-whether it meets our privacy threshold. If the
-privacy threshold isn’t met (when somewhere
-isn’t busy enough to ensure anonymity) we
-don’t show a change for the day.
+it takes to produce the reports.                 These reports are powered by the same
+                                                 world-class anonymization technology that
+What data is included in the calculation         we use in our products every day and that
+depends on user settings, connectivity, and      keep your activity data private and secure.
+whether it meets our privacy threshold. If the   These reports use differential privacy, which
+privacy threshold isn’t met (when somewhere      adds artificial noise to our datasets enabling
+isn’t busy enough to ensure anonymity) we        high quality results without identifying any
+don’t show a change for the day.                 individual person. These privacy-preserving
+                                                 protections also ensure that the absolute
 We include categories that are useful to
+                                                 number of visits isn’t shared.
 social distancing efforts as well as access to
-essential services.
+essential services.                              To get the latest report, visit
+                                                 google.com/covid19/mobility
 We calculate these insights based on data
 from users who have opted-in to Location
 History for their Google Account, so the data
 represents a sample of our users. As with all
 samples, this may or may not represent the
 exact behavior of a wider population.
-
-These reports are powered by the same
-world-class anonymization technology that
-we use in our products every day and that
-keep your activity data private and secure.
-These reports use differential privacy, which
-adds artificial noise to our datasets enabling
-high quality results without identifying any
-individual person. These privacy-preserving
-protections also ensure that the absolute
-number of visits isn’t shared.
-To get the latest report, visit
-google.com/covid19/mobility
-
 
