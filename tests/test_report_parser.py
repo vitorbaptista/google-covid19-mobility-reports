@@ -7,8 +7,8 @@ from mobility_reports import ReportParser
 
 class ReportParserSampleReportTests:
     expected_num_of_rows = None
-    expected_countrywide = None
-    expected_country = None
+    expected_overall = None
+    expected_region = None
     expected_date = None
     expected_regions = None
 
@@ -26,19 +26,19 @@ class ReportParserSampleReportTests:
         assert len(data) == self.expected_num_of_rows
 
     def test_parse_overall_mobility_changes(self, report):
-        if self.expected_countrywide is None:
+        if self.expected_overall is None:
             pytest.skip()
 
         parser = ReportParser()
         data = parser.parse_overall_mobility_changes(report)
-        assert data == self.expected_countrywide
+        assert data == self.expected_overall
 
-    def test_parse_country(self, report):
-        if self.expected_country is None:
+    def test_parse_region(self, report):
+        if self.expected_region is None:
             pytest.skip()
 
         parser = ReportParser()
-        assert parser.parse_country(report) == self.expected_country
+        assert parser.parse_region(report) == self.expected_region
 
     def test_parse_date(self, report):
         if self.expected_date is None:
@@ -47,16 +47,18 @@ class ReportParserSampleReportTests:
         parser = ReportParser()
         assert parser.parse_date(report) == self.expected_date
 
-    def test_parse_regions(self, report):
+    def test_parse_subregions(self, report):
         if self.expected_regions is None:
             pytest.skip()
 
         parser = ReportParser()
-        regions = parser.parse_regions(report)
+        regions = parser.parse_subregions(report)
 
         for expected_region in self.expected_regions:
             region = [
-                row for row in regions if row["region"] == expected_region["region"]
+                row
+                for row in regions
+                if row["subregion"] == expected_region["subregion"]
             ]
 
             assert (
@@ -66,10 +68,10 @@ class ReportParserSampleReportTests:
 
 
 class TestReportParserBRReport(ReportParserSampleReportTests):
-    expected_country = "Brazil"
+    expected_region = "Brazil"
     expected_date = "2020-03-29"
     expected_num_of_rows = 28  # 27 states + countrywide
-    expected_countrywide = {
+    expected_overall = {
         "retail_and_recreation": -0.71,
         "grocery_and_pharmacy": -0.35,
         "parks": -0.7,
@@ -85,7 +87,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.56,
             "workplaces": -0.36,
             "residential": 0.2,
-            "region": "Federal District",
+            "subregion": "Federal District",
         },
         {
             "retail_and_recreation": -0.68,
@@ -94,7 +96,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.75,
             "workplaces": -0.22,
             "residential": 0.11,
-            "region": "State of Acre",
+            "subregion": "State of Acre",
         },
         {
             "retail_and_recreation": -0.77,
@@ -103,7 +105,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.76,
             "workplaces": -0.35,
             "residential": 0.17,
-            "region": "State of Alagoas",
+            "subregion": "State of Alagoas",
         },
         {
             "retail_and_recreation": -0.71,
@@ -112,7 +114,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.73,
             "workplaces": -0.28,
             "residential": 0.11,
-            "region": "State of Amapá",
+            "subregion": "State of Amapá",
         },
         {
             "retail_and_recreation": -0.64,
@@ -121,7 +123,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.46,
             "workplaces": -0.26,
             "residential": 0.13,
-            "region": "State of Amazonas",
+            "subregion": "State of Amazonas",
         },
         {
             "retail_and_recreation": -0.73,
@@ -130,7 +132,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.73,
             "workplaces": -0.33,
             "residential": 0.17,
-            "region": "State of Bahia",
+            "subregion": "State of Bahia",
         },
         {
             "retail_and_recreation": -0.76,
@@ -139,7 +141,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.68,
             "workplaces": -0.33,
             "residential": 0.16,
-            "region": "State of Ceará",
+            "subregion": "State of Ceará",
         },
         {
             "retail_and_recreation": -0.68,
@@ -148,7 +150,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.69,
             "workplaces": -0.31,
             "residential": 0.16,
-            "region": "State of Espírito Santo",
+            "subregion": "State of Espírito Santo",
         },
         {
             "retail_and_recreation": -0.67,
@@ -157,7 +159,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.5,
             "workplaces": -0.28,
             "residential": 0.15,
-            "region": "State of Goiás",
+            "subregion": "State of Goiás",
         },
         {
             "retail_and_recreation": -0.63,
@@ -166,7 +168,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.66,
             "workplaces": -0.2,
             "residential": 0.11,
-            "region": "State of Maranhão",
+            "subregion": "State of Maranhão",
         },
         {
             "retail_and_recreation": -0.63,
@@ -175,7 +177,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.59,
             "workplaces": -0.22,
             "residential": 0.11,
-            "region": "State of Mato Grosso",
+            "subregion": "State of Mato Grosso",
         },
         {
             "retail_and_recreation": -0.68,
@@ -184,7 +186,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.68,
             "workplaces": -0.26,
             "residential": 0.14,
-            "region": "State of Mato Grosso do Sul",
+            "subregion": "State of Mato Grosso do Sul",
         },
         {
             "retail_and_recreation": -0.66,
@@ -193,7 +195,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.57,
             "workplaces": -0.3,
             "residential": 0.15,
-            "region": "State of Minas Gerais",
+            "subregion": "State of Minas Gerais",
         },
         {
             "retail_and_recreation": -0.75,
@@ -202,7 +204,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.64,
             "workplaces": -0.34,
             "residential": 0.17,
-            "region": "State of Paraná",
+            "subregion": "State of Paraná",
         },
         {
             "retail_and_recreation": -0.76,
@@ -211,7 +213,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.64,
             "workplaces": -0.33,
             "residential": 0.17,
-            "region": "State of Paraíba",
+            "subregion": "State of Paraíba",
         },
         {
             "retail_and_recreation": -0.61,
@@ -220,7 +222,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.64,
             "workplaces": -0.19,
             "residential": 0.12,
-            "region": "State of Pará",
+            "subregion": "State of Pará",
         },
         {
             "retail_and_recreation": -0.74,
@@ -229,7 +231,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.59,
             "workplaces": -0.35,
             "residential": 0.17,
-            "region": "State of Pernambuco",
+            "subregion": "State of Pernambuco",
         },
         {
             "retail_and_recreation": -0.71,
@@ -238,7 +240,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.76,
             "workplaces": -0.27,
             "residential": 0.18,
-            "region": "State of Piauí",
+            "subregion": "State of Piauí",
         },
         {
             "retail_and_recreation": -0.74,
@@ -247,7 +249,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.66,
             "workplaces": -0.33,
             "residential": 0.19,
-            "region": "State of Rio Grande do Norte",
+            "subregion": "State of Rio Grande do Norte",
         },
         {
             "retail_and_recreation": -0.75,
@@ -256,7 +258,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.67,
             "workplaces": -0.36,
             "residential": 0.2,
-            "region": "State of Rio Grande do Sul",
+            "subregion": "State of Rio Grande do Sul",
         },
         {
             "retail_and_recreation": -0.72,
@@ -265,7 +267,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.61,
             "workplaces": -0.37,
             "residential": 0.17,
-            "region": "State of Rio de Janeiro",
+            "subregion": "State of Rio de Janeiro",
         },
         {
             "retail_and_recreation": -0.63,
@@ -274,7 +276,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.71,
             "workplaces": -0.23,
             "residential": 0.12,
-            "region": "State of Rondônia",
+            "subregion": "State of Rondônia",
         },
         {
             "retail_and_recreation": -0.68,
@@ -283,7 +285,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.72,
             "workplaces": -0.24,
             "residential": 0.12,
-            "region": "State of Roraima",
+            "subregion": "State of Roraima",
         },
         {
             "retail_and_recreation": -0.8,
@@ -292,7 +294,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.76,
             "workplaces": -0.4,
             "residential": 0.2,
-            "region": "State of Santa Catarina",
+            "subregion": "State of Santa Catarina",
         },
         {
             "retail_and_recreation": -0.78,
@@ -301,7 +303,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.83,
             "workplaces": -0.36,
             "residential": 0.18,
-            "region": "State of Sergipe",
+            "subregion": "State of Sergipe",
         },
         {
             "retail_and_recreation": -0.72,
@@ -310,7 +312,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.62,
             "workplaces": -0.37,
             "residential": 0.17,
-            "region": "State of São Paulo",
+            "subregion": "State of São Paulo",
         },
         {
             "retail_and_recreation": -0.61,
@@ -319,7 +321,7 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
             "transit_stations": -0.71,
             "workplaces": -0.19,
             "residential": 0.11,
-            "region": "State of Tocantins",
+            "subregion": "State of Tocantins",
         },
     ]
 
@@ -329,8 +331,8 @@ class TestReportParserBRReport(ReportParserSampleReportTests):
 
 
 class TestReportParserGBReport(ReportParserSampleReportTests):
-    expected_country = "United Kingdom"
-    expected_countrywide = {
+    expected_region = "United Kingdom"
+    expected_overall = {
         "retail_and_recreation": -0.85,
         "grocery_and_pharmacy": -0.46,
         "parks": -0.52,
@@ -341,7 +343,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
 
     expected_regions = [
         {
-            "region": "Aberdeen City",
+            "subregion": "Aberdeen City",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.41,
             "parks": -0.46,
@@ -350,7 +352,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.3,
         },
         {
-            "region": "Aberdeenshire",
+            "subregion": "Aberdeenshire",
             "retail_and_recreation": -0.8,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.45,
@@ -359,7 +361,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.27,
         },
         {
-            "region": "Angus council",
+            "subregion": "Angus council",
             "retail_and_recreation": -0.8,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.28,
@@ -369,7 +371,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Antrim And Newtownabbey",
+            "subregion": "Antrim And Newtownabbey",
             "retail_and_recreation": -0.81,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.61,
@@ -380,7 +382,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Ards And North Down",
+            "subregion": "Ards And North Down",
             "retail_and_recreation": -0.78,
             "grocery_and_pharmacy": -0.39,
             "parks": -0.57,
@@ -390,7 +392,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Argyll and Bute Council",
+            "subregion": "Argyll and Bute Council",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.34,
@@ -400,7 +402,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Armagh City and Banbridge And Craigavon",
+            "subregion": "Armagh City and Banbridge And Craigavon",
             "retail_and_recreation": -0.82,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.66,
@@ -409,7 +411,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.27,
         },
         {
-            "region": "Bath and North East Somerset",
+            "subregion": "Bath and North East Somerset",
             "retail_and_recreation": -0.91,
             "grocery_and_pharmacy": -0.48,
             "parks": -0.54,
@@ -419,7 +421,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Bedford",
+            "subregion": "Bedford",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.51,
@@ -429,7 +431,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Belfast",
+            "subregion": "Belfast",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.42,
             "parks": -0.47,
@@ -438,7 +440,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.17,
         },
         {
-            "region": "Blackburn with Darwen",
+            "subregion": "Blackburn with Darwen",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.42,
             "parks": None,
@@ -449,7 +451,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Blackpool",
+            "subregion": "Blackpool",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.64,
@@ -459,7 +461,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Blaenau Gwent",
+            "subregion": "Blaenau Gwent",
             "retail_and_recreation": -0.75,
             "grocery_and_pharmacy": -0.46,
             "parks": None,
@@ -471,7 +473,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Borough of Halton",
+            "subregion": "Borough of Halton",
             "retail_and_recreation": -0.78,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.46,
@@ -482,7 +484,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Bracknell Forest",
+            "subregion": "Bracknell Forest",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.41,
             "parks": -0.56,
@@ -493,7 +495,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Bridgend County Borough",
+            "subregion": "Bridgend County Borough",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.48,
@@ -504,7 +506,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Brighton and Hove",
+            "subregion": "Brighton and Hove",
             "retail_and_recreation": -0.89,
             "grocery_and_pharmacy": -0.48,
             "parks": -0.59,
@@ -513,7 +515,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.3,
         },
         {
-            "region": "Buckinghamshire",
+            "subregion": "Buckinghamshire",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.43,
@@ -522,7 +524,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.16,
         },
         {
-            "region": "Caerphilly County Borough",
+            "subregion": "Caerphilly County Borough",
             "retail_and_recreation": -0.78,
             "grocery_and_pharmacy": -0.41,
             "parks": -0.52,
@@ -533,7 +535,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Cambridgeshire",
+            "subregion": "Cambridgeshire",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.48,
             "parks": -0.51,
@@ -542,7 +544,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.16,
         },
         {
-            "region": "Cardiff",
+            "subregion": "Cardiff",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.48,
@@ -551,7 +553,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.17,
         },
         {
-            "region": "Carmarthenshire",
+            "subregion": "Carmarthenshire",
             "retail_and_recreation": -0.81,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.57,
@@ -561,7 +563,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Causeway Coast and Glens",
+            "subregion": "Causeway Coast and Glens",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.41,
             "parks": -0.66,
@@ -572,7 +574,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Central Bedfordshire",
+            "subregion": "Central Bedfordshire",
             "retail_and_recreation": -0.82,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.41,
@@ -581,7 +583,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.2,
         },
         {
-            "region": "Ceredigion",
+            "subregion": "Ceredigion",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.54,
             "parks": -0.6,
@@ -592,7 +594,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "transit_stations_not_enough_data": True,
         },
         {
-            "region": "Cheshire East",
+            "subregion": "Cheshire East",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.63,
@@ -601,7 +603,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Cheshire West and Chester",
+            "subregion": "Cheshire West and Chester",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.58,
@@ -610,7 +612,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "City of Bristol",
+            "subregion": "City of Bristol",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.25,
@@ -619,7 +621,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.18,
         },
         {
-            "region": "Clackmannanshire",
+            "subregion": "Clackmannanshire",
             "retail_and_recreation": -0.89,
             "grocery_and_pharmacy": -0.39,
             "parks": None,
@@ -631,7 +633,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Conwy Principal Area",
+            "subregion": "Conwy Principal Area",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.48,
             "parks": -0.7,
@@ -641,7 +643,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Cornwall",
+            "subregion": "Cornwall",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.53,
             "parks": -0.54,
@@ -650,7 +652,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "County Durham",
+            "subregion": "County Durham",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.42,
             "parks": -0.56,
@@ -659,7 +661,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Cumbria",
+            "subregion": "Cumbria",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.5,
             "parks": -0.54,
@@ -668,7 +670,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Darlington",
+            "subregion": "Darlington",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.57,
@@ -679,7 +681,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Denbighshire",
+            "subregion": "Denbighshire",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.59,
@@ -689,7 +691,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Derby",
+            "subregion": "Derby",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.55,
@@ -698,7 +700,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.19,
         },
         {
-            "region": "Derbyshire",
+            "subregion": "Derbyshire",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.55,
@@ -707,7 +709,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Derry And Strabane",
+            "subregion": "Derry And Strabane",
             "retail_and_recreation": -0.8,
             "grocery_and_pharmacy": -0.39,
             "parks": -0.63,
@@ -717,7 +719,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Devon",
+            "subregion": "Devon",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.51,
             "parks": -0.54,
@@ -726,7 +728,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Dorset",
+            "subregion": "Dorset",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.57,
@@ -735,7 +737,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Dumfries and Galloway",
+            "subregion": "Dumfries and Galloway",
             "retail_and_recreation": -0.8,
             "grocery_and_pharmacy": -0.42,
             "parks": -0.48,
@@ -745,7 +747,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Dundee City Council",
+            "subregion": "Dundee City Council",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.52,
             "parks": -0.1,
@@ -754,7 +756,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.26,
         },
         {
-            "region": "East Ayrshire Council",
+            "subregion": "East Ayrshire Council",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.39,
             "parks": None,
@@ -765,7 +767,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "East Dunbartonshire Council",
+            "subregion": "East Dunbartonshire Council",
             "retail_and_recreation": -0.75,
             "grocery_and_pharmacy": -0.35,
             "parks": None,
@@ -776,7 +778,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "East Lothian Council",
+            "subregion": "East Lothian Council",
             "retail_and_recreation": -0.81,
             "grocery_and_pharmacy": -0.37,
             "parks": -0.34,
@@ -787,7 +789,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "East Renfrewshire Council",
+            "subregion": "East Renfrewshire Council",
             "retail_and_recreation": -0.63,
             "grocery_and_pharmacy": -0.29,
             "parks": -0.54,
@@ -799,7 +801,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "East Riding of Yorkshire",
+            "subregion": "East Riding of Yorkshire",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.61,
@@ -808,7 +810,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "East Sussex",
+            "subregion": "East Sussex",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.6,
@@ -817,7 +819,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Edinburgh",
+            "subregion": "Edinburgh",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.42,
@@ -826,7 +828,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.18,
         },
         {
-            "region": "Essex",
+            "subregion": "Essex",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.49,
             "parks": -0.58,
@@ -835,7 +837,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.16,
         },
         {
-            "region": "Falkirk",
+            "subregion": "Falkirk",
             "retail_and_recreation": -0.78,
             "grocery_and_pharmacy": -0.38,
             "parks": -0.26,
@@ -846,7 +848,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Fermanagh And Omagh",
+            "subregion": "Fermanagh And Omagh",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.55,
@@ -857,7 +859,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Fife",
+            "subregion": "Fife",
             "retail_and_recreation": -0.79,
             "grocery_and_pharmacy": -0.38,
             "parks": -0.32,
@@ -866,7 +868,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Flintshire",
+            "subregion": "Flintshire",
             "retail_and_recreation": -0.8,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.48,
@@ -877,7 +879,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Glasgow City",
+            "subregion": "Glasgow City",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.37,
@@ -886,7 +888,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.16,
         },
         {
-            "region": "Gloucestershire",
+            "subregion": "Gloucestershire",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.48,
             "parks": -0.49,
@@ -895,7 +897,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Greater London",
+            "subregion": "Greater London",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.48,
             "parks": -0.59,
@@ -904,7 +906,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.19,
         },
         {
-            "region": "Greater Manchester",
+            "subregion": "Greater Manchester",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.44,
@@ -913,7 +915,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.16,
         },
         {
-            "region": "Gwynedd",
+            "subregion": "Gwynedd",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.55,
             "parks": -0.62,
@@ -923,7 +925,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Hampshire",
+            "subregion": "Hampshire",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.48,
@@ -932,7 +934,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Hartlepool",
+            "subregion": "Hartlepool",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.64,
@@ -943,7 +945,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Herefordshire",
+            "subregion": "Herefordshire",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.5,
             "parks": -0.42,
@@ -953,7 +955,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Hertfordshire",
+            "subregion": "Hertfordshire",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.46,
@@ -962,7 +964,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.16,
         },
         {
-            "region": "Highland Council",
+            "subregion": "Highland Council",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.48,
@@ -971,7 +973,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.24,
         },
         {
-            "region": "Inverclyde",
+            "subregion": "Inverclyde",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.37,
             "parks": None,
@@ -982,7 +984,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Isle of Anglesey",
+            "subregion": "Isle of Anglesey",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.48,
             "parks": -0.65,
@@ -993,7 +995,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Isle of Wight",
+            "subregion": "Isle of Wight",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.57,
@@ -1003,7 +1005,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Kent",
+            "subregion": "Kent",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.49,
             "parks": -0.62,
@@ -1012,7 +1014,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Kingston upon Hull",
+            "subregion": "Kingston upon Hull",
             "retail_and_recreation": -0.82,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.49,
@@ -1021,7 +1023,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Lancashire",
+            "subregion": "Lancashire",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.39,
@@ -1030,7 +1032,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Leicester",
+            "subregion": "Leicester",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.45,
@@ -1039,7 +1041,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Leicestershire",
+            "subregion": "Leicestershire",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.54,
@@ -1048,7 +1050,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Lincolnshire",
+            "subregion": "Lincolnshire",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.63,
@@ -1057,7 +1059,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.13,
         },
         {
-            "region": "Lisburn and Castlereagh",
+            "subregion": "Lisburn and Castlereagh",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.79,
@@ -1068,7 +1070,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Luton",
+            "subregion": "Luton",
             "retail_and_recreation": -0.79,
             "grocery_and_pharmacy": -0.39,
             "parks": -0.41,
@@ -1078,7 +1080,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Medway",
+            "subregion": "Medway",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.4,
             "parks": -0.67,
@@ -1087,7 +1089,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Merseyside",
+            "subregion": "Merseyside",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.42,
             "parks": -0.53,
@@ -1096,7 +1098,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Merthyr Tydfil County Borough",
+            "subregion": "Merthyr Tydfil County Borough",
             "retail_and_recreation": -0.89,
             "grocery_and_pharmacy": -0.5,
             "parks": None,
@@ -1108,7 +1110,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Mid And East Antrim",
+            "subregion": "Mid And East Antrim",
             "retail_and_recreation": -0.81,
             "grocery_and_pharmacy": -0.37,
             "parks": -0.52,
@@ -1119,7 +1121,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Mid Ulster",
+            "subregion": "Mid Ulster",
             "retail_and_recreation": -0.81,
             "grocery_and_pharmacy": -0.43,
             "parks": None,
@@ -1131,7 +1133,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Middlesbrough",
+            "subregion": "Middlesbrough",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.63,
@@ -1142,7 +1144,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Midlothian",
+            "subregion": "Midlothian",
             "retail_and_recreation": -0.9,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.2,
@@ -1153,7 +1155,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Milton Keynes",
+            "subregion": "Milton Keynes",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.49,
             "parks": -0.53,
@@ -1162,7 +1164,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.19,
         },
         {
-            "region": "Monmouthshire",
+            "subregion": "Monmouthshire",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.56,
             "parks": -0.61,
@@ -1172,7 +1174,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Moray",
+            "subregion": "Moray",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.42,
@@ -1183,7 +1185,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "transit_stations_not_enough_data": True,
         },
         {
-            "region": "Na h-Eileanan an Iar",
+            "subregion": "Na h-Eileanan an Iar",
             "retail_and_recreation": -0.77,
             "grocery_and_pharmacy": -0.31,
             "parks": None,
@@ -1198,7 +1200,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Neath Port Talbot Principle Area",
+            "subregion": "Neath Port Talbot Principle Area",
             "retail_and_recreation": -0.74,
             "grocery_and_pharmacy": -0.38,
             "parks": -0.46,
@@ -1209,7 +1211,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Newport",
+            "subregion": "Newport",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.49,
@@ -1219,7 +1221,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Newry and Mourne And Down",
+            "subregion": "Newry and Mourne And Down",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.65,
@@ -1230,7 +1232,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Norfolk",
+            "subregion": "Norfolk",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.52,
             "parks": -0.69,
@@ -1239,7 +1241,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "North Ayrshire Council",
+            "subregion": "North Ayrshire Council",
             "retail_and_recreation": -0.79,
             "grocery_and_pharmacy": -0.37,
             "parks": -0.12,
@@ -1250,7 +1252,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "North East Lincolnshire",
+            "subregion": "North East Lincolnshire",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.72,
@@ -1259,7 +1261,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.22,
         },
         {
-            "region": "North Lanarkshire",
+            "subregion": "North Lanarkshire",
             "retail_and_recreation": -0.78,
             "grocery_and_pharmacy": -0.37,
             "parks": None,
@@ -1269,7 +1271,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "North Lincolnshire",
+            "subregion": "North Lincolnshire",
             "retail_and_recreation": -0.79,
             "grocery_and_pharmacy": -0.41,
             "parks": -0.56,
@@ -1279,7 +1281,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "North Somerset",
+            "subregion": "North Somerset",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.5,
             "parks": -0.52,
@@ -1288,7 +1290,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.27,
         },
         {
-            "region": "North Yorkshire",
+            "subregion": "North Yorkshire",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.48,
             "parks": -0.65,
@@ -1297,7 +1299,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Northamptonshire",
+            "subregion": "Northamptonshire",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.42,
             "parks": -0.59,
@@ -1306,7 +1308,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Northumberland",
+            "subregion": "Northumberland",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.42,
             "parks": -0.66,
@@ -1315,7 +1317,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Nottinghamshire",
+            "subregion": "Nottinghamshire",
             "retail_and_recreation": -0.9,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.58,
@@ -1324,7 +1326,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Orkney",
+            "subregion": "Orkney",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.4,
             "parks": None,
@@ -1339,7 +1341,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Oxfordshire",
+            "subregion": "Oxfordshire",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.48,
@@ -1348,7 +1350,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.17,
         },
         {
-            "region": "Pembrokeshire",
+            "subregion": "Pembrokeshire",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.49,
             "parks": -0.62,
@@ -1358,7 +1360,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Perth and Kinross",
+            "subregion": "Perth and Kinross",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.39,
@@ -1368,7 +1370,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Peterborough",
+            "subregion": "Peterborough",
             "retail_and_recreation": -0.8,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.36,
@@ -1378,7 +1380,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Plymouth",
+            "subregion": "Plymouth",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.5,
             "parks": -0.43,
@@ -1387,7 +1389,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.18,
         },
         {
-            "region": "Portsmouth",
+            "subregion": "Portsmouth",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.46,
@@ -1396,7 +1398,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.19,
         },
         {
-            "region": "Powys",
+            "subregion": "Powys",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.5,
             "parks": -0.56,
@@ -1406,7 +1408,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Reading",
+            "subregion": "Reading",
             "retail_and_recreation": -0.89,
             "grocery_and_pharmacy": -0.5,
             "parks": -0.41,
@@ -1416,7 +1418,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Redcar and Cleveland",
+            "subregion": "Redcar and Cleveland",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.63,
@@ -1427,7 +1429,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Renfrewshire",
+            "subregion": "Renfrewshire",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.39,
             "parks": 0.14,
@@ -1437,7 +1439,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Rhondda Cynon Taff",
+            "subregion": "Rhondda Cynon Taff",
             "retail_and_recreation": -0.8,
             "grocery_and_pharmacy": -0.41,
             "parks": -0.47,
@@ -1446,7 +1448,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.19,
         },
         {
-            "region": "Rutland",
+            "subregion": "Rutland",
             "retail_and_recreation": -1.0,
             "grocery_and_pharmacy": -0.37,
             "parks": -0.7,
@@ -1459,7 +1461,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "workplaces_not_enough_data": True,
         },
         {
-            "region": "Scottish Borders",
+            "subregion": "Scottish Borders",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.39,
@@ -1469,7 +1471,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Shetland Islands",
+            "subregion": "Shetland Islands",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.49,
             "parks": None,
@@ -1484,7 +1486,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Shropshire",
+            "subregion": "Shropshire",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.49,
             "parks": -0.56,
@@ -1493,7 +1495,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Slough",
+            "subregion": "Slough",
             "retail_and_recreation": -0.8,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.45,
@@ -1503,7 +1505,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Somerset",
+            "subregion": "Somerset",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.48,
             "parks": -0.56,
@@ -1512,7 +1514,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "South Ayrshire Council",
+            "subregion": "South Ayrshire Council",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.42,
             "parks": -0.35,
@@ -1523,7 +1525,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "South Gloucestershire",
+            "subregion": "South Gloucestershire",
             "retail_and_recreation": -0.81,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.3,
@@ -1532,7 +1534,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.2,
         },
         {
-            "region": "South Lanarkshire",
+            "subregion": "South Lanarkshire",
             "retail_and_recreation": -0.78,
             "grocery_and_pharmacy": -0.38,
             "parks": -0.06,
@@ -1541,7 +1543,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "South Yorkshire",
+            "subregion": "South Yorkshire",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.47,
@@ -1550,7 +1552,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Southampton",
+            "subregion": "Southampton",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.41,
             "parks": -0.57,
@@ -1559,7 +1561,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.19,
         },
         {
-            "region": "Southend-on-Sea",
+            "subregion": "Southend-on-Sea",
             "retail_and_recreation": -0.89,
             "grocery_and_pharmacy": -0.39,
             "parks": -0.63,
@@ -1569,7 +1571,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Staffordshire",
+            "subregion": "Staffordshire",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.54,
@@ -1578,7 +1580,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Stirling",
+            "subregion": "Stirling",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.49,
             "parks": -0.49,
@@ -1588,7 +1590,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Stockton-on-Tees",
+            "subregion": "Stockton-on-Tees",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.6,
@@ -1597,7 +1599,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.25,
         },
         {
-            "region": "Stoke-on-Trent",
+            "subregion": "Stoke-on-Trent",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.41,
@@ -1606,7 +1608,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Suffolk",
+            "subregion": "Suffolk",
             "retail_and_recreation": -0.87,
             "grocery_and_pharmacy": -0.51,
             "parks": -0.67,
@@ -1615,7 +1617,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Surrey",
+            "subregion": "Surrey",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.57,
@@ -1624,7 +1626,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.17,
         },
         {
-            "region": "Swansea",
+            "subregion": "Swansea",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.5,
             "parks": -0.51,
@@ -1633,7 +1635,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.19,
         },
         {
-            "region": "Swindon",
+            "subregion": "Swindon",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.3,
@@ -1643,7 +1645,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Thurrock",
+            "subregion": "Thurrock",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.53,
             "parks": -0.51,
@@ -1653,7 +1655,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Torbay",
+            "subregion": "Torbay",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.58,
@@ -1663,7 +1665,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Torfaen Principal Area",
+            "subregion": "Torfaen Principal Area",
             "retail_and_recreation": -0.82,
             "grocery_and_pharmacy": -0.37,
             "parks": None,
@@ -1674,7 +1676,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Tyne and Wear",
+            "subregion": "Tyne and Wear",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.58,
@@ -1683,7 +1685,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Vale of Glamorgan",
+            "subregion": "Vale of Glamorgan",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.49,
             "parks": -0.59,
@@ -1693,7 +1695,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Warrington",
+            "subregion": "Warrington",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.42,
             "parks": -0.29,
@@ -1703,7 +1705,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Warwickshire",
+            "subregion": "Warwickshire",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.56,
@@ -1712,7 +1714,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "West Berkshire",
+            "subregion": "West Berkshire",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.49,
             "parks": -0.41,
@@ -1722,7 +1724,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "West Dunbartonshire Council",
+            "subregion": "West Dunbartonshire Council",
             "retail_and_recreation": -0.75,
             "grocery_and_pharmacy": -0.43,
             "parks": None,
@@ -1733,7 +1735,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "West Lothian",
+            "subregion": "West Lothian",
             "retail_and_recreation": -0.74,
             "grocery_and_pharmacy": -0.29,
             "parks": -0.29,
@@ -1743,7 +1745,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "West Midlands",
+            "subregion": "West Midlands",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.45,
@@ -1752,7 +1754,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "West Sussex",
+            "subregion": "West Sussex",
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.46,
             "parks": -0.53,
@@ -1761,7 +1763,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "West Yorkshire",
+            "subregion": "West Yorkshire",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.44,
             "parks": -0.49,
@@ -1770,7 +1772,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Wiltshire",
+            "subregion": "Wiltshire",
             "retail_and_recreation": -0.84,
             "grocery_and_pharmacy": -0.45,
             "parks": -0.56,
@@ -1779,7 +1781,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Windsor and Maidenhead",
+            "subregion": "Windsor and Maidenhead",
             "retail_and_recreation": -0.88,
             "grocery_and_pharmacy": -0.42,
             "parks": -0.74,
@@ -1789,7 +1791,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Wokingham",
+            "subregion": "Wokingham",
             "retail_and_recreation": -0.81,
             "grocery_and_pharmacy": -0.52,
             "parks": -0.26,
@@ -1800,7 +1802,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Worcestershire",
+            "subregion": "Worcestershire",
             "retail_and_recreation": -0.86,
             "grocery_and_pharmacy": -0.47,
             "parks": -0.44,
@@ -1809,7 +1811,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "residential": 0.14,
         },
         {
-            "region": "Wrexham Principal Area",
+            "subregion": "Wrexham Principal Area",
             "retail_and_recreation": -0.83,
             "grocery_and_pharmacy": -0.43,
             "parks": -0.45,
@@ -1820,7 +1822,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "York",
+            "subregion": "York",
             "retail_and_recreation": -0.9,
             "grocery_and_pharmacy": -0.5,
             "parks": -0.64,
@@ -1836,7 +1838,7 @@ class TestReportParserGBReport(ReportParserSampleReportTests):
 
 
 class TestReportParserCZReport(ReportParserSampleReportTests):
-    expected_countrywide = {
+    expected_overall = {
         "retail_and_recreation": -0.73,
         "grocery_and_pharmacy": -0.26,
         "parks": -0.24,
@@ -1851,7 +1853,7 @@ class TestReportParserCZReport(ReportParserSampleReportTests):
 
 
 class TestReportParserKRReport(ReportParserSampleReportTests):
-    expected_countrywide = {
+    expected_overall = {
         "retail_and_recreation": -0.19,
         "grocery_and_pharmacy": 0.11,
         "parks": 0.51,
@@ -1867,7 +1869,7 @@ class TestReportParserKRReport(ReportParserSampleReportTests):
 
 class TestReportParserARReport(ReportParserSampleReportTests):
     expected_num_of_rows = 25
-    expected_countrywide = {
+    expected_overall = {
         "retail_and_recreation": -0.86,
         "grocery_and_pharmacy": -0.61,
         "parks": -0.89,
@@ -1883,7 +1885,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.82,
             "workplaces": -0.69,
             "residential": 0.31,
-            "region": "Buenos Aires",
+            "subregion": "Buenos Aires",
         },
         {
             "retail_and_recreation": -0.88,
@@ -1892,7 +1894,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.79,
             "workplaces": -0.6,
             "residential": 0.26,
-            "region": "Buenos Aires Province",
+            "subregion": "Buenos Aires Province",
         },
         {
             "retail_and_recreation": -0.71,
@@ -1901,7 +1903,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.81,
             "workplaces": -0.35,
             "residential": 0.29,
-            "region": "Catamarca Province",
+            "subregion": "Catamarca Province",
         },
         {
             "retail_and_recreation": -0.79,
@@ -1910,7 +1912,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.92,
             "workplaces": -0.48,
             "residential": 0.24,
-            "region": "Chaco Province",
+            "subregion": "Chaco Province",
         },
         {
             "retail_and_recreation": -0.92,
@@ -1919,7 +1921,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.93,
             "workplaces": -0.62,
             "residential": 0.28,
-            "region": "Chubut Province",
+            "subregion": "Chubut Province",
         },
         {
             "retail_and_recreation": -0.88,
@@ -1928,7 +1930,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.91,
             "workplaces": -0.57,
             "residential": 0.3,
-            "region": "Cordoba",
+            "subregion": "Cordoba",
         },
         {
             "retail_and_recreation": -0.8,
@@ -1937,7 +1939,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.89,
             "workplaces": -0.47,
             "residential": 0.25,
-            "region": "Corrientes",
+            "subregion": "Corrientes",
         },
         {
             "retail_and_recreation": -0.87,
@@ -1946,7 +1948,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.9,
             "workplaces": -0.54,
             "residential": 0.29,
-            "region": "Entre Rios",
+            "subregion": "Entre Rios",
         },
         {
             "retail_and_recreation": -0.76,
@@ -1955,7 +1957,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.71,
             "workplaces": -0.37,
             "residential": 0.21,
-            "region": "Formosa Province",
+            "subregion": "Formosa Province",
             "transit_stations_not_enough_data": True,
         },
         {
@@ -1965,7 +1967,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.92,
             "workplaces": -0.44,
             "residential": 0.27,
-            "region": "Jujuy",
+            "subregion": "Jujuy",
         },
         {
             "retail_and_recreation": -0.88,
@@ -1974,7 +1976,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.87,
             "workplaces": -0.56,
             "residential": 0.28,
-            "region": "La Pampa",
+            "subregion": "La Pampa",
         },
         {
             "retail_and_recreation": -0.7,
@@ -1983,7 +1985,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.86,
             "workplaces": -0.4,
             "residential": 0.26,
-            "region": "La Rioja Province",
+            "subregion": "La Rioja Province",
         },
         {
             "retail_and_recreation": -0.81,
@@ -1992,7 +1994,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.72,
             "workplaces": -0.49,
             "residential": 0.29,
-            "region": "Mendoza Province",
+            "subregion": "Mendoza Province",
         },
         {
             "retail_and_recreation": -0.83,
@@ -2001,7 +2003,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.92,
             "workplaces": -0.51,
             "residential": 0.27,
-            "region": "Misiones Province",
+            "subregion": "Misiones Province",
         },
         {
             "retail_and_recreation": -0.96,
@@ -2010,7 +2012,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.92,
             "workplaces": -0.72,
             "residential": 0.33,
-            "region": "Neuquen",
+            "subregion": "Neuquen",
         },
         {
             "retail_and_recreation": -0.9,
@@ -2019,7 +2021,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.96,
             "workplaces": -0.55,
             "residential": 0.29,
-            "region": "Río Negro",
+            "subregion": "Río Negro",
         },
         {
             "retail_and_recreation": -0.82,
@@ -2028,7 +2030,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.76,
             "workplaces": -0.47,
             "residential": 0.26,
-            "region": "Salta Province",
+            "subregion": "Salta Province",
         },
         {
             "retail_and_recreation": -0.76,
@@ -2037,7 +2039,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.87,
             "workplaces": -0.46,
             "residential": 0.28,
-            "region": "San Juan Province",
+            "subregion": "San Juan Province",
         },
         {
             "retail_and_recreation": -0.85,
@@ -2046,7 +2048,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.91,
             "workplaces": -0.56,
             "residential": 0.29,
-            "region": "San Luis Province",
+            "subregion": "San Luis Province",
         },
         {
             "retail_and_recreation": -0.83,
@@ -2055,7 +2057,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.91,
             "workplaces": -0.56,
             "residential": 0.24,
-            "region": "Santa Cruz Province",
+            "subregion": "Santa Cruz Province",
         },
         {
             "retail_and_recreation": -0.87,
@@ -2064,7 +2066,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.77,
             "workplaces": -0.57,
             "residential": 0.29,
-            "region": "Santa Fe Province",
+            "subregion": "Santa Fe Province",
         },
         {
             "retail_and_recreation": -0.75,
@@ -2073,7 +2075,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.9,
             "workplaces": -0.46,
             "residential": 0.25,
-            "region": "Santiago del Estero Province",
+            "subregion": "Santiago del Estero Province",
         },
         {
             "retail_and_recreation": -0.87,
@@ -2082,7 +2084,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.92,
             "workplaces": -0.59,
             "residential": 0.24,
-            "region": "Tierra del Fuego Province",
+            "subregion": "Tierra del Fuego Province",
         },
         {
             "retail_and_recreation": -0.81,
@@ -2091,7 +2093,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
             "transit_stations": -0.9,
             "workplaces": -0.51,
             "residential": 0.28,
-            "region": "Tucumán",
+            "subregion": "Tucumán",
         },
     ]
 
@@ -2101,7 +2103,7 @@ class TestReportParserARReport(ReportParserSampleReportTests):
 
 
 class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
-    expected_countrywide = {
+    expected_overall = {
         "retail_and_recreation": -0.42,
         "grocery_and_pharmacy": -0.17,
         "parks": -0.02,
@@ -2112,7 +2114,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
 
     expected_regions = [
         {
-            "region": "Appling County",
+            "subregion": "Appling County",
             "retail_and_recreation": -0.28,
             "grocery_and_pharmacy": -0.16,
             "parks": None,
@@ -2124,7 +2126,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Atkinson County",
+            "subregion": "Atkinson County",
             "retail_and_recreation": -0.29,
             "grocery_and_pharmacy": 0.12,
             "parks": None,
@@ -2138,7 +2140,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Bacon County",
+            "subregion": "Bacon County",
             "retail_and_recreation": -0.26,
             "grocery_and_pharmacy": -0.15,
             "parks": None,
@@ -2152,7 +2154,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Baldwin County",
+            "subregion": "Baldwin County",
             "retail_and_recreation": -0.34,
             "grocery_and_pharmacy": -0.2,
             "parks": None,
@@ -2164,7 +2166,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Banks County",
+            "subregion": "Banks County",
             "retail_and_recreation": -0.35,
             "grocery_and_pharmacy": None,
             "parks": None,
@@ -2177,7 +2179,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Barrow County",
+            "subregion": "Barrow County",
             "retail_and_recreation": -0.35,
             "grocery_and_pharmacy": -0.12,
             "parks": -0.37,
@@ -2188,7 +2190,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Bartow County",
+            "subregion": "Bartow County",
             "retail_and_recreation": -0.42,
             "grocery_and_pharmacy": -0.05,
             "parks": 0.4,
@@ -2197,7 +2199,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.09,
         },
         {
-            "region": "Ben Hill County",
+            "subregion": "Ben Hill County",
             "retail_and_recreation": -0.28,
             "grocery_and_pharmacy": 0.09,
             "parks": None,
@@ -2209,7 +2211,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Berrien County",
+            "subregion": "Berrien County",
             "retail_and_recreation": -0.28,
             "grocery_and_pharmacy": 0.05,
             "parks": None,
@@ -2222,7 +2224,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Bibb County",
+            "subregion": "Bibb County",
             "retail_and_recreation": -0.43,
             "grocery_and_pharmacy": -0.16,
             "parks": 0.36,
@@ -2232,7 +2234,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Bleckley County",
+            "subregion": "Bleckley County",
             "retail_and_recreation": -0.31,
             "grocery_and_pharmacy": -0.08,
             "parks": None,
@@ -2245,7 +2247,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Brantley County",
+            "subregion": "Brantley County",
             "retail_and_recreation": -0.27,
             "grocery_and_pharmacy": -0.04,
             "parks": None,
@@ -2258,7 +2260,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Brooks County",
+            "subregion": "Brooks County",
             "retail_and_recreation": -0.38,
             "grocery_and_pharmacy": -0.05,
             "parks": None,
@@ -2271,7 +2273,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Bryan County",
+            "subregion": "Bryan County",
             "retail_and_recreation": -0.45,
             "grocery_and_pharmacy": -0.19,
             "parks": -0.09,
@@ -2282,7 +2284,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Bulloch County",
+            "subregion": "Bulloch County",
             "retail_and_recreation": -0.41,
             "grocery_and_pharmacy": -0.12,
             "parks": None,
@@ -2293,7 +2295,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Burke County",
+            "subregion": "Burke County",
             "retail_and_recreation": -0.24,
             "grocery_and_pharmacy": -0.07,
             "parks": -0.23,
@@ -2305,7 +2307,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Butts County",
+            "subregion": "Butts County",
             "retail_and_recreation": -0.3,
             "grocery_and_pharmacy": -0.06,
             "parks": None,
@@ -2316,7 +2318,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Camden County",
+            "subregion": "Camden County",
             "retail_and_recreation": -0.35,
             "grocery_and_pharmacy": 0.03,
             "parks": 0.07,
@@ -2326,7 +2328,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential_not_enough_data": True,
         },
         {
-            "region": "Candler County",
+            "subregion": "Candler County",
             "retail_and_recreation": -0.57,
             "grocery_and_pharmacy": -0.2,
             "parks": None,
@@ -2339,7 +2341,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Carroll County",
+            "subregion": "Carroll County",
             "retail_and_recreation": -0.38,
             "grocery_and_pharmacy": -0.18,
             "parks": 0.12,
@@ -2349,7 +2351,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Catoosa County",
+            "subregion": "Catoosa County",
             "retail_and_recreation": -0.38,
             "grocery_and_pharmacy": -0.08,
             "parks": 0.14,
@@ -2359,7 +2361,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "transit_stations_not_enough_data": True,
         },
         {
-            "region": "Charlton County",
+            "subregion": "Charlton County",
             "retail_and_recreation": -0.31,
             "grocery_and_pharmacy": 0.07,
             "parks": None,
@@ -2372,7 +2374,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Chatham County",
+            "subregion": "Chatham County",
             "retail_and_recreation": -0.5,
             "grocery_and_pharmacy": -0.24,
             "parks": -0.32,
@@ -2381,7 +2383,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.11,
         },
         {
-            "region": "Chattahoochee County",
+            "subregion": "Chattahoochee County",
             "retail_and_recreation": -0.53,
             "grocery_and_pharmacy": -0.39,
             "parks": None,
@@ -2394,7 +2396,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Chattooga County",
+            "subregion": "Chattooga County",
             "retail_and_recreation": -0.15,
             "grocery_and_pharmacy": -0.02,
             "parks": None,
@@ -2406,7 +2408,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Cherokee County",
+            "subregion": "Cherokee County",
             "retail_and_recreation": -0.39,
             "grocery_and_pharmacy": -0.2,
             "parks": 0.59,
@@ -2416,7 +2418,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "transit_stations_not_enough_data": True,
         },
         {
-            "region": "Clarke County",
+            "subregion": "Clarke County",
             "retail_and_recreation": -0.51,
             "grocery_and_pharmacy": -0.24,
             "parks": -0.21,
@@ -2425,7 +2427,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.12,
         },
         {
-            "region": "Clayton County",
+            "subregion": "Clayton County",
             "retail_and_recreation": -0.3,
             "grocery_and_pharmacy": -0.18,
             "parks": 0.15,
@@ -2434,7 +2436,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.11,
         },
         {
-            "region": "Clinch County",
+            "subregion": "Clinch County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": -0.02,
             "parks": None,
@@ -2449,7 +2451,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Cobb County",
+            "subregion": "Cobb County",
             "retail_and_recreation": -0.49,
             "grocery_and_pharmacy": -0.22,
             "parks": -0.47,
@@ -2458,7 +2460,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.13,
         },
         {
-            "region": "Coffee County",
+            "subregion": "Coffee County",
             "retail_and_recreation": -0.41,
             "grocery_and_pharmacy": -0.08,
             "parks": None,
@@ -2470,7 +2472,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Colquitt County",
+            "subregion": "Colquitt County",
             "retail_and_recreation": -0.31,
             "grocery_and_pharmacy": -0.06,
             "parks": None,
@@ -2482,7 +2484,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Columbia County",
+            "subregion": "Columbia County",
             "retail_and_recreation": -0.35,
             "grocery_and_pharmacy": -0.07,
             "parks": -0.2,
@@ -2491,7 +2493,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.11,
         },
         {
-            "region": "Cook County",
+            "subregion": "Cook County",
             "retail_and_recreation": -0.17,
             "grocery_and_pharmacy": 0.02,
             "parks": None,
@@ -2503,7 +2505,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Coweta County",
+            "subregion": "Coweta County",
             "retail_and_recreation": -0.46,
             "grocery_and_pharmacy": -0.16,
             "parks": -0.56,
@@ -2513,7 +2515,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Crawford County",
+            "subregion": "Crawford County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": None,
             "parks": None,
@@ -2528,7 +2530,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Crisp County",
+            "subregion": "Crisp County",
             "retail_and_recreation": -0.28,
             "grocery_and_pharmacy": -0.22,
             "parks": None,
@@ -2539,7 +2541,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Dade County",
+            "subregion": "Dade County",
             "retail_and_recreation": -0.49,
             "grocery_and_pharmacy": -0.09,
             "parks": None,
@@ -2550,7 +2552,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Dawson County",
+            "subregion": "Dawson County",
             "retail_and_recreation": -0.49,
             "grocery_and_pharmacy": -0.25,
             "parks": 0.17,
@@ -2562,7 +2564,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "DeKalb County",
+            "subregion": "DeKalb County",
             "retail_and_recreation": -0.47,
             "grocery_and_pharmacy": -0.26,
             "parks": -0.15,
@@ -2571,7 +2573,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.13,
         },
         {
-            "region": "Decatur County",
+            "subregion": "Decatur County",
             "retail_and_recreation": -0.24,
             "grocery_and_pharmacy": -0.1,
             "parks": None,
@@ -2583,7 +2585,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Dodge County",
+            "subregion": "Dodge County",
             "retail_and_recreation": -0.26,
             "grocery_and_pharmacy": -0.05,
             "parks": None,
@@ -2595,7 +2597,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Dooly County",
+            "subregion": "Dooly County",
             "retail_and_recreation": -0.59,
             "grocery_and_pharmacy": -0.25,
             "parks": None,
@@ -2608,7 +2610,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Dougherty County",
+            "subregion": "Dougherty County",
             "retail_and_recreation": -0.51,
             "grocery_and_pharmacy": -0.24,
             "parks": -0.37,
@@ -2618,7 +2620,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Douglas County",
+            "subregion": "Douglas County",
             "retail_and_recreation": -0.4,
             "grocery_and_pharmacy": -0.26,
             "parks": -0.02,
@@ -2627,7 +2629,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.11,
         },
         {
-            "region": "Early County",
+            "subregion": "Early County",
             "retail_and_recreation": -0.73,
             "grocery_and_pharmacy": -0.23,
             "parks": None,
@@ -2640,7 +2642,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Effingham County",
+            "subregion": "Effingham County",
             "retail_and_recreation": -0.28,
             "grocery_and_pharmacy": -0.07,
             "parks": None,
@@ -2652,7 +2654,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Elbert County",
+            "subregion": "Elbert County",
             "retail_and_recreation": -0.13,
             "grocery_and_pharmacy": 0.03,
             "parks": None,
@@ -2664,7 +2666,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Emanuel County",
+            "subregion": "Emanuel County",
             "retail_and_recreation": -0.21,
             "grocery_and_pharmacy": 0.17,
             "parks": None,
@@ -2676,7 +2678,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Evans County",
+            "subregion": "Evans County",
             "retail_and_recreation": -0.22,
             "grocery_and_pharmacy": 0.04,
             "parks": None,
@@ -2689,7 +2691,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Fannin County",
+            "subregion": "Fannin County",
             "retail_and_recreation": -0.45,
             "grocery_and_pharmacy": -0.21,
             "parks": 0.38,
@@ -2701,7 +2703,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Fayette County",
+            "subregion": "Fayette County",
             "retail_and_recreation": -0.4,
             "grocery_and_pharmacy": -0.29,
             "parks": 0.25,
@@ -2712,7 +2714,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Floyd County",
+            "subregion": "Floyd County",
             "retail_and_recreation": -0.36,
             "grocery_and_pharmacy": -0.08,
             "parks": 0.28,
@@ -2723,7 +2725,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Forsyth County",
+            "subregion": "Forsyth County",
             "retail_and_recreation": -0.45,
             "grocery_and_pharmacy": -0.32,
             "parks": 0.03,
@@ -2733,7 +2735,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "transit_stations_not_enough_data": True,
         },
         {
-            "region": "Franklin County",
+            "subregion": "Franklin County",
             "retail_and_recreation": -0.42,
             "grocery_and_pharmacy": -0.15,
             "parks": -0.22,
@@ -2744,7 +2746,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Fulton County",
+            "subregion": "Fulton County",
             "retail_and_recreation": -0.54,
             "grocery_and_pharmacy": -0.26,
             "parks": -0.44,
@@ -2753,7 +2755,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.13,
         },
         {
-            "region": "Gilmer County",
+            "subregion": "Gilmer County",
             "retail_and_recreation": -0.45,
             "grocery_and_pharmacy": -0.31,
             "parks": None,
@@ -2765,7 +2767,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Glynn County",
+            "subregion": "Glynn County",
             "retail_and_recreation": -0.45,
             "grocery_and_pharmacy": -0.22,
             "parks": -0.32,
@@ -2774,7 +2776,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.1,
         },
         {
-            "region": "Gordon County",
+            "subregion": "Gordon County",
             "retail_and_recreation": -0.3,
             "grocery_and_pharmacy": -0.08,
             "parks": None,
@@ -2785,7 +2787,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Grady County",
+            "subregion": "Grady County",
             "retail_and_recreation": -0.35,
             "grocery_and_pharmacy": -0.06,
             "parks": None,
@@ -2797,7 +2799,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Greene County",
+            "subregion": "Greene County",
             "retail_and_recreation": -0.17,
             "grocery_and_pharmacy": -0.13,
             "parks": None,
@@ -2809,7 +2811,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Gwinnett County",
+            "subregion": "Gwinnett County",
             "retail_and_recreation": -0.5,
             "grocery_and_pharmacy": -0.24,
             "parks": -0.09,
@@ -2818,7 +2820,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.15,
         },
         {
-            "region": "Habersham County",
+            "subregion": "Habersham County",
             "retail_and_recreation": -0.35,
             "grocery_and_pharmacy": -0.1,
             "parks": None,
@@ -2830,7 +2832,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Hall County",
+            "subregion": "Hall County",
             "retail_and_recreation": -0.39,
             "grocery_and_pharmacy": -0.19,
             "parks": 0.51,
@@ -2841,7 +2843,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Hancock County",
+            "subregion": "Hancock County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": 0.06,
             "parks": None,
@@ -2856,7 +2858,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Haralson County",
+            "subregion": "Haralson County",
             "retail_and_recreation": -0.27,
             "grocery_and_pharmacy": -0.06,
             "parks": -0.29,
@@ -2867,7 +2869,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Harris County",
+            "subregion": "Harris County",
             "retail_and_recreation": -0.04,
             "grocery_and_pharmacy": 0.09,
             "parks": None,
@@ -2879,7 +2881,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Hart County",
+            "subregion": "Hart County",
             "retail_and_recreation": -0.18,
             "grocery_and_pharmacy": -0.06,
             "parks": None,
@@ -2891,7 +2893,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Heard County",
+            "subregion": "Heard County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": 0.02,
             "parks": None,
@@ -2905,7 +2907,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Henry County",
+            "subregion": "Henry County",
             "retail_and_recreation": -0.42,
             "grocery_and_pharmacy": -0.13,
             "parks": 0.22,
@@ -2915,7 +2917,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "transit_stations_not_enough_data": True,
         },
         {
-            "region": "Houston County",
+            "subregion": "Houston County",
             "retail_and_recreation": -0.39,
             "grocery_and_pharmacy": -0.15,
             "parks": -0.06,
@@ -2925,7 +2927,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "transit_stations_not_enough_data": True,
         },
         {
-            "region": "Irwin County",
+            "subregion": "Irwin County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": -0.02,
             "parks": None,
@@ -2939,7 +2941,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Jackson County",
+            "subregion": "Jackson County",
             "retail_and_recreation": -0.61,
             "grocery_and_pharmacy": -0.38,
             "parks": None,
@@ -2950,7 +2952,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Jasper County",
+            "subregion": "Jasper County",
             "retail_and_recreation": -0.39,
             "grocery_and_pharmacy": -0.02,
             "parks": None,
@@ -2964,7 +2966,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Jeff Davis County",
+            "subregion": "Jeff Davis County",
             "retail_and_recreation": -0.27,
             "grocery_and_pharmacy": -0.12,
             "parks": None,
@@ -2977,7 +2979,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Jefferson County",
+            "subregion": "Jefferson County",
             "retail_and_recreation": -0.28,
             "grocery_and_pharmacy": -0.03,
             "parks": None,
@@ -2990,7 +2992,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Jenkins County",
+            "subregion": "Jenkins County",
             "retail_and_recreation": -0.33,
             "grocery_and_pharmacy": 0.02,
             "parks": None,
@@ -3005,7 +3007,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Johnson County",
+            "subregion": "Johnson County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": -0.09,
             "parks": None,
@@ -3019,7 +3021,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Jones County",
+            "subregion": "Jones County",
             "retail_and_recreation": -0.25,
             "grocery_and_pharmacy": 0.04,
             "parks": None,
@@ -3031,7 +3033,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Lamar County",
+            "subregion": "Lamar County",
             "retail_and_recreation": -0.34,
             "grocery_and_pharmacy": -0.06,
             "parks": None,
@@ -3043,7 +3045,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Lanier County",
+            "subregion": "Lanier County",
             "retail_and_recreation": -0.43,
             "grocery_and_pharmacy": -0.06,
             "parks": None,
@@ -3058,7 +3060,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Laurens County",
+            "subregion": "Laurens County",
             "retail_and_recreation": -0.42,
             "grocery_and_pharmacy": -0.15,
             "parks": None,
@@ -3069,7 +3071,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Lee County",
+            "subregion": "Lee County",
             "retail_and_recreation": -0.45,
             "grocery_and_pharmacy": -0.21,
             "parks": None,
@@ -3081,7 +3083,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Liberty County",
+            "subregion": "Liberty County",
             "retail_and_recreation": -0.32,
             "grocery_and_pharmacy": -0.17,
             "parks": -0.17,
@@ -3092,7 +3094,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Lincoln County",
+            "subregion": "Lincoln County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": None,
             "parks": None,
@@ -3107,7 +3109,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Long County",
+            "subregion": "Long County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": None,
             "parks": None,
@@ -3121,7 +3123,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Lowndes County",
+            "subregion": "Lowndes County",
             "retail_and_recreation": -0.45,
             "grocery_and_pharmacy": -0.17,
             "parks": -0.13,
@@ -3130,7 +3132,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.08,
         },
         {
-            "region": "Lumpkin County",
+            "subregion": "Lumpkin County",
             "retail_and_recreation": -0.35,
             "grocery_and_pharmacy": 0.19,
             "parks": None,
@@ -3142,7 +3144,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Macon County",
+            "subregion": "Macon County",
             "retail_and_recreation": -0.35,
             "grocery_and_pharmacy": -0.04,
             "parks": None,
@@ -3156,7 +3158,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Madison County",
+            "subregion": "Madison County",
             "retail_and_recreation": -0.51,
             "grocery_and_pharmacy": -0.17,
             "parks": None,
@@ -3169,7 +3171,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Marion County",
+            "subregion": "Marion County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": 0.12,
             "parks": None,
@@ -3184,7 +3186,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "McDuffie County",
+            "subregion": "McDuffie County",
             "retail_and_recreation": -0.14,
             "grocery_and_pharmacy": 0.04,
             "parks": None,
@@ -3195,7 +3197,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "McIntosh County",
+            "subregion": "McIntosh County",
             "retail_and_recreation": -0.49,
             "grocery_and_pharmacy": 0.0,
             "parks": None,
@@ -3208,7 +3210,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Meriwether County",
+            "subregion": "Meriwether County",
             "retail_and_recreation": -0.21,
             "grocery_and_pharmacy": -0.04,
             "parks": None,
@@ -3220,7 +3222,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Miller County",
+            "subregion": "Miller County",
             "retail_and_recreation": -0.58,
             "grocery_and_pharmacy": None,
             "parks": None,
@@ -3235,7 +3237,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Mitchell County",
+            "subregion": "Mitchell County",
             "retail_and_recreation": -0.21,
             "grocery_and_pharmacy": -0.25,
             "parks": None,
@@ -3247,7 +3249,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Monroe County",
+            "subregion": "Monroe County",
             "retail_and_recreation": -0.39,
             "grocery_and_pharmacy": 0.03,
             "parks": 0.11,
@@ -3259,7 +3261,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Montgomery County",
+            "subregion": "Montgomery County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": -0.07,
             "parks": None,
@@ -3274,7 +3276,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Morgan County",
+            "subregion": "Morgan County",
             "retail_and_recreation": -0.33,
             "grocery_and_pharmacy": -0.14,
             "parks": None,
@@ -3285,7 +3287,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Murray County",
+            "subregion": "Murray County",
             "retail_and_recreation": -0.18,
             "grocery_and_pharmacy": 0.01,
             "parks": None,
@@ -3297,7 +3299,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Muscogee County",
+            "subregion": "Muscogee County",
             "retail_and_recreation": -0.44,
             "grocery_and_pharmacy": -0.08,
             "parks": 0.19,
@@ -3306,7 +3308,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.09,
         },
         {
-            "region": "Newton County",
+            "subregion": "Newton County",
             "retail_and_recreation": -0.31,
             "grocery_and_pharmacy": -0.14,
             "parks": -0.13,
@@ -3317,7 +3319,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Oconee County",
+            "subregion": "Oconee County",
             "retail_and_recreation": -0.46,
             "grocery_and_pharmacy": -0.07,
             "parks": None,
@@ -3330,7 +3332,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Oglethorpe County",
+            "subregion": "Oglethorpe County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": 0.0,
             "parks": None,
@@ -3345,7 +3347,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Paulding County",
+            "subregion": "Paulding County",
             "retail_and_recreation": -0.34,
             "grocery_and_pharmacy": -0.25,
             "parks": -0.55,
@@ -3356,7 +3358,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Peach County",
+            "subregion": "Peach County",
             "retail_and_recreation": -0.39,
             "grocery_and_pharmacy": -0.16,
             "parks": None,
@@ -3367,7 +3369,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Pickens County",
+            "subregion": "Pickens County",
             "retail_and_recreation": -0.27,
             "grocery_and_pharmacy": -0.16,
             "parks": None,
@@ -3379,7 +3381,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Pierce County",
+            "subregion": "Pierce County",
             "retail_and_recreation": -0.48,
             "grocery_and_pharmacy": -0.14,
             "parks": None,
@@ -3391,7 +3393,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Pike County",
+            "subregion": "Pike County",
             "retail_and_recreation": -0.38,
             "grocery_and_pharmacy": 0.03,
             "parks": None,
@@ -3404,7 +3406,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Polk County",
+            "subregion": "Polk County",
             "retail_and_recreation": -0.21,
             "grocery_and_pharmacy": -0.04,
             "parks": None,
@@ -3416,7 +3418,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Pulaski County",
+            "subregion": "Pulaski County",
             "retail_and_recreation": -0.54,
             "grocery_and_pharmacy": -0.12,
             "parks": None,
@@ -3429,7 +3431,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Putnam County",
+            "subregion": "Putnam County",
             "retail_and_recreation": -0.03,
             "grocery_and_pharmacy": 0.02,
             "parks": None,
@@ -3441,7 +3443,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Rabun County",
+            "subregion": "Rabun County",
             "retail_and_recreation": -0.42,
             "grocery_and_pharmacy": -0.02,
             "parks": 0.37,
@@ -3453,7 +3455,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Randolph County",
+            "subregion": "Randolph County",
             "retail_and_recreation": -0.64,
             "grocery_and_pharmacy": None,
             "parks": None,
@@ -3468,7 +3470,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Richmond County",
+            "subregion": "Richmond County",
             "retail_and_recreation": -0.4,
             "grocery_and_pharmacy": -0.05,
             "parks": 0.26,
@@ -3477,7 +3479,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "residential": 0.08,
         },
         {
-            "region": "Rockdale County",
+            "subregion": "Rockdale County",
             "retail_and_recreation": -0.43,
             "grocery_and_pharmacy": -0.11,
             "parks": -0.18,
@@ -3488,7 +3490,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Schley County",
+            "subregion": "Schley County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": None,
             "parks": None,
@@ -3503,7 +3505,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Screven County",
+            "subregion": "Screven County",
             "retail_and_recreation": -0.37,
             "grocery_and_pharmacy": 0.0,
             "parks": None,
@@ -3516,7 +3518,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Seminole County",
+            "subregion": "Seminole County",
             "retail_and_recreation": -0.07,
             "grocery_and_pharmacy": -0.18,
             "parks": None,
@@ -3530,7 +3532,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Spalding County",
+            "subregion": "Spalding County",
             "retail_and_recreation": -0.27,
             "grocery_and_pharmacy": -0.13,
             "parks": None,
@@ -3541,7 +3543,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Stephens County",
+            "subregion": "Stephens County",
             "retail_and_recreation": -0.24,
             "grocery_and_pharmacy": -0.09,
             "parks": None,
@@ -3553,7 +3555,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Sumter County",
+            "subregion": "Sumter County",
             "retail_and_recreation": -0.29,
             "grocery_and_pharmacy": -0.25,
             "parks": None,
@@ -3565,7 +3567,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Talbot County",
+            "subregion": "Talbot County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": None,
             "parks": -0.09,
@@ -3580,7 +3582,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Tattnall County",
+            "subregion": "Tattnall County",
             "retail_and_recreation": -0.32,
             "grocery_and_pharmacy": 0.03,
             "parks": None,
@@ -3592,7 +3594,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Taylor County",
+            "subregion": "Taylor County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": 0.04,
             "parks": None,
@@ -3607,7 +3609,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Telfair County",
+            "subregion": "Telfair County",
             "retail_and_recreation": -0.55,
             "grocery_and_pharmacy": 0.0,
             "parks": None,
@@ -3620,7 +3622,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Terrell County",
+            "subregion": "Terrell County",
             "retail_and_recreation": -0.27,
             "grocery_and_pharmacy": -0.17,
             "parks": None,
@@ -3633,7 +3635,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Thomas County",
+            "subregion": "Thomas County",
             "retail_and_recreation": -0.35,
             "grocery_and_pharmacy": -0.09,
             "parks": None,
@@ -3645,7 +3647,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Tift County",
+            "subregion": "Tift County",
             "retail_and_recreation": -0.4,
             "grocery_and_pharmacy": -0.26,
             "parks": None,
@@ -3656,7 +3658,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Toombs County",
+            "subregion": "Toombs County",
             "retail_and_recreation": -0.31,
             "grocery_and_pharmacy": -0.12,
             "parks": None,
@@ -3668,7 +3670,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Towns County",
+            "subregion": "Towns County",
             "retail_and_recreation": -0.38,
             "grocery_and_pharmacy": -0.03,
             "parks": None,
@@ -3681,7 +3683,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Treutlen County",
+            "subregion": "Treutlen County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": -0.04,
             "parks": None,
@@ -3696,7 +3698,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Troup County",
+            "subregion": "Troup County",
             "retail_and_recreation": -0.36,
             "grocery_and_pharmacy": -0.1,
             "parks": None,
@@ -3706,7 +3708,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Turner County",
+            "subregion": "Turner County",
             "retail_and_recreation": -0.61,
             "grocery_and_pharmacy": 0.23,
             "parks": None,
@@ -3720,7 +3722,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Twiggs County",
+            "subregion": "Twiggs County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": None,
             "parks": None,
@@ -3735,7 +3737,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Union County",
+            "subregion": "Union County",
             "retail_and_recreation": -0.3,
             "grocery_and_pharmacy": 0.11,
             "parks": 0.22,
@@ -3747,7 +3749,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Upson County",
+            "subregion": "Upson County",
             "retail_and_recreation": -0.25,
             "grocery_and_pharmacy": -0.08,
             "parks": None,
@@ -3759,7 +3761,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Walker County",
+            "subregion": "Walker County",
             "retail_and_recreation": -0.2,
             "grocery_and_pharmacy": 0.07,
             "parks": -0.28,
@@ -3770,7 +3772,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Walton County",
+            "subregion": "Walton County",
             "retail_and_recreation": -0.28,
             "grocery_and_pharmacy": 0.07,
             "parks": None,
@@ -3781,7 +3783,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Ware County",
+            "subregion": "Ware County",
             "retail_and_recreation": -0.39,
             "grocery_and_pharmacy": -0.18,
             "parks": None,
@@ -3793,7 +3795,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Warren County",
+            "subregion": "Warren County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": None,
             "parks": None,
@@ -3808,7 +3810,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Washington County",
+            "subregion": "Washington County",
             "retail_and_recreation": -0.12,
             "grocery_and_pharmacy": -0.31,
             "parks": None,
@@ -3820,7 +3822,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Wayne County",
+            "subregion": "Wayne County",
             "retail_and_recreation": -0.3,
             "grocery_and_pharmacy": -0.08,
             "parks": None,
@@ -3832,7 +3834,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "White County",
+            "subregion": "White County",
             "retail_and_recreation": -0.43,
             "grocery_and_pharmacy": -0.02,
             "parks": -0.16,
@@ -3844,7 +3846,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Whitfield County",
+            "subregion": "Whitfield County",
             "retail_and_recreation": -0.34,
             "grocery_and_pharmacy": -0.07,
             "parks": -0.45,
@@ -3854,7 +3856,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Wilcox County",
+            "subregion": "Wilcox County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": 0.13,
             "parks": None,
@@ -3869,7 +3871,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Wilkes County",
+            "subregion": "Wilkes County",
             "retail_and_recreation": -0.31,
             "grocery_and_pharmacy": -0.14,
             "parks": None,
@@ -3882,7 +3884,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Wilkinson County",
+            "subregion": "Wilkinson County",
             "retail_and_recreation": None,
             "grocery_and_pharmacy": 0.0,
             "parks": None,
@@ -3896,7 +3898,7 @@ class TestReportParserUSGeorgiaReport(ReportParserSampleReportTests):
             "parks_not_enough_data": True,
         },
         {
-            "region": "Worth County",
+            "subregion": "Worth County",
             "retail_and_recreation": -0.28,
             "grocery_and_pharmacy": -0.09,
             "parks": None,

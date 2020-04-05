@@ -18,8 +18,8 @@ def parse_args():
 
 def write_as_csv(data, output):
     fieldnames = [
-        "country",
         "region",
+        "subregion",
         "updated_at",
         "retail_and_recreation",
         "grocery_and_pharmacy",
@@ -38,7 +38,8 @@ def write_as_csv(data, output):
     csvwriter.writeheader()
 
     sorted_data = sorted(
-        data, key=lambda row: (row["country"], row.get("region", ""), row["updated_at"])
+        data,
+        key=lambda row: (row["region"], row.get("subregion", ""), row["updated_at"]),
     )
     csvwriter.writerows(sorted_data)
 

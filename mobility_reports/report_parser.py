@@ -6,24 +6,24 @@ from . import template_to_regexp
 
 class ReportParser:
     def parse(self, text):
-        country = self.parse_country(text)
+        region = self.parse_region(text)
         updated_at = self.parse_date(text)
         overall = self.parse_overall_mobility_changes(text)
-        regions = self.parse_regions(text)
+        subregions = self.parse_subregions(text)
 
-        country_and_regions = [overall] + regions
-        for row in country_and_regions:
-            row["country"] = country
+        region_and_subregions = [overall] + subregions
+        for row in region_and_subregions:
+            row["region"] = region
             row["updated_at"] = updated_at
 
-        return country_and_regions
+        return region_and_subregions
 
-    def parse_country(self, text):
-        country, _ = self._parse_country_and_date(text)
-        return country
+    def parse_region(self, text):
+        region, _ = self._parse_region_and_date(text)
+        return region
 
     def parse_date(self, text):
-        _, date = self._parse_country_and_date(text)
+        _, date = self._parse_region_and_date(text)
         return date
 
     def parse_overall_mobility_changes(self, text):
@@ -37,14 +37,14 @@ class ReportParser:
         ]
         subset_index = text.find("Mobility trends for places of residence")
         subset_index = text.find("\x0c", subset_index)
-        country_report_pages = text[:subset_index]
-        values = re.findall(r"^(\S+)%", country_report_pages, re.MULTILINE)
+        region_report_pages = text[:subset_index]
+        values = re.findall(r"^(\S+)%", region_report_pages, re.MULTILINE)
 
         data = {key: int(value) / 100 for (key, value) in zip(keys, values)}
         return data
 
-    def parse_regions(self, text):
-        regions = []
+    def parse_subregions(self, text):
+        subregions = []
 
         # Skip first pages that don't have region data.
         index = text.find("Mobility trends for places of residence")
@@ -53,42 +53,42 @@ class ReportParser:
         else:
             text_subset = text
 
-        region = self._parse_first_region(text_subset)
+        subregion = self._parse_first_subregion(text_subset)
 
-        while region:
-            regions.append(region)
-            next_subset_index = text_subset.find(region["region"]) + len(
-                region["region"]
+        while subregion:
+            subregions.append(subregion)
+            next_subset_index = text_subset.find(subregion["subregion"]) + len(
+                subregion["subregion"]
             )
             text_subset = text_subset[next_subset_index:]
-            region = self._parse_first_region(text_subset)
+            subregion = self._parse_first_subregion(text_subset)
 
-        return regions
+        return subregions
 
-    def _parse_first_region(self, text):
+    def _parse_first_subregion(self, text):
         regexp = r"""
-(?P<region>[^\*\n]+)[\n]*?
+(?P<subregion>[^\*\n]+)[\n]*?
 Retail \& recreation
         """.strip()
         data = _extract_groups_from_regexp(regexp, text)
         if not data:
             return
 
-        index = text.find(data["region"])
+        index = text.find(data["subregion"])
         if index == -1:
             raise ValueError("Could not parse")
 
         text_subset = text[index:]
-        data["region"] = data["region"].strip()
-        data.update(self._extract_region_values(text_subset))
-        not_enough = self._extract_region_not_enough_data_markers(text_subset)
+        data["subregion"] = data["subregion"].strip()
+        data.update(self._extract_subregion_values(text_subset))
+        not_enough = self._extract_subregion_not_enough_data_markers(text_subset)
 
         for not_enough_column in not_enough:
             data[f"{not_enough_column}_not_enough_data"] = True
 
         return data
 
-    def _extract_region_values(self, text):
+    def _extract_subregion_values(self, text):
         keys = [
             "retail_and_recreation",
             "grocery_and_pharmacy",
@@ -117,7 +117,7 @@ Retail \& recreation
 
         return data
 
-    def _extract_region_not_enough_data_markers(self, text):
+    def _extract_subregion_not_enough_data_markers(self, text):
         """Returns the columns with not enough data indicators.
 
         These columns are marked with an asterisk. As the text extracted from
@@ -194,23 +194,23 @@ Retail \& recreation
 
         return not_enough_data
 
-    def _parse_country_and_date(self, text):
+    def _parse_region_and_date(self, text):
         template = """
 COVID-19 Community Mobility Report
-{country_and_date}
+{region_and_date}
 Mobility changes
         """.strip()
         data = _extract_groups_from_template(template, text)
         if not data:
             return
 
-        data_parts = data["country_and_date"].split(" ")
-        country = " ".join(data_parts[:-3]).strip()
+        data_parts = data["region_and_date"].split(" ")
+        region = " ".join(data_parts[:-3]).strip()
         date_str = " ".join(data_parts[-3:]).strip()
 
         date = datetime.datetime.strptime(date_str, "%B %d, %Y").date().isoformat()
 
-        return country, date
+        return region, date
 
 
 def _extract_groups_from_template(template, text):
