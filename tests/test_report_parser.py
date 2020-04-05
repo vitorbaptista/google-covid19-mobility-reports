@@ -6,9 +6,9 @@ from mobility_reports import ReportParser
 
 
 class TestReportParser:
-    def test_parse(self, br_fixture):
+    def test_parse(self, br_report):
         parser = ReportParser()
-        data = parser.parse(br_fixture)
+        data = parser.parse(br_report)
 
         assert len(data) == 28  # 27 states + countrywide
         countrywide = data[0]
@@ -23,24 +23,24 @@ class TestReportParser:
             "updated_at": "2020-03-29",
         }
 
-    def test_raise_value_error_if_cant_parse_text(self, gb_fixture):
+    def test_raise_value_error_if_cant_parse_text(self, gb_report):
         parser = ReportParser()
         with pytest.raises(ValueError):
-            parser.parse(gb_fixture)
+            parser.parse(gb_report)
 
-    def test_parse_country(self, br_fixture):
+    def test_parse_country(self, br_report):
         report = ReportParser()
-        assert report.parse_country(br_fixture) == "Brazil"
+        assert report.parse_country(br_report) == "Brazil"
 
-    def test_parse_country_gb(self, gb_fixture):
+    def test_parse_country_gb(self, gb_report):
         report = ReportParser()
-        assert report.parse_country(gb_fixture) == "United Kingdom"
+        assert report.parse_country(gb_report) == "United Kingdom"
 
-    def test_parse_date(self, br_fixture):
+    def test_parse_date(self, br_report):
         report = ReportParser()
-        assert report.parse_date(br_fixture) == "2020-03-29"
+        assert report.parse_date(br_report) == "2020-03-29"
 
-    def test_parse_overall_mobility_changes_br(self, br_fixture):
+    def test_parse_overall_mobility_changes_br(self, br_report):
         expected_data = {
             "retail_and_recreation": -0.71,
             "grocery_and_pharmacy": -0.35,
@@ -50,10 +50,10 @@ class TestReportParser:
             "residential": 0.17,
         }
         parser = ReportParser()
-        data = parser.parse_overall_mobility_changes(br_fixture)
+        data = parser.parse_overall_mobility_changes(br_report)
         assert data == expected_data
 
-    def test_parse_overall_mobility_changes_gb(self, gb_fixture):
+    def test_parse_overall_mobility_changes_gb(self, gb_report):
         expected_data = {
             "retail_and_recreation": -0.85,
             "grocery_and_pharmacy": -0.46,
@@ -63,10 +63,10 @@ class TestReportParser:
             "residential": 0.15,
         }
         parser = ReportParser()
-        data = parser.parse_overall_mobility_changes(gb_fixture)
+        data = parser.parse_overall_mobility_changes(gb_report)
         assert data == expected_data
 
-    def test_parse_overall_mobility_changes_cz(self, cz_fixture):
+    def test_parse_overall_mobility_changes_cz(self, cz_report):
         expected_data = {
             "retail_and_recreation": -0.73,
             "grocery_and_pharmacy": -0.26,
@@ -76,10 +76,10 @@ class TestReportParser:
             "residential": 0.11,
         }
         parser = ReportParser()
-        data = parser.parse_overall_mobility_changes(cz_fixture)
+        data = parser.parse_overall_mobility_changes(cz_report)
         assert data == expected_data
 
-    def test_parse_overall_mobility_changes_kr(self, kr_fixture):
+    def test_parse_overall_mobility_changes_kr(self, kr_report):
         expected_data = {
             "retail_and_recreation": -0.19,
             "grocery_and_pharmacy": 0.11,
@@ -89,10 +89,10 @@ class TestReportParser:
             "residential": 0.06,
         }
         parser = ReportParser()
-        data = parser.parse_overall_mobility_changes(kr_fixture)
+        data = parser.parse_overall_mobility_changes(kr_report)
         assert data == expected_data
 
-    def test_parse_regions(self, br_fixture):
+    def test_parse_regions(self, br_report):
         expected_data = [
             {
                 "retail_and_recreation": -0.68,
@@ -339,12 +339,12 @@ class TestReportParser:
             },
         ]
         parser = ReportParser()
-        data = parser.parse_regions(br_fixture)
+        data = parser.parse_regions(br_report)
 
         assert data == expected_data
 
     @pytest.mark.skip(reason="cannot parse PDFs with regions without enough data yet")
-    def test_parse_region_without_enough_data(self, gb_fixture):
+    def test_parse_region_without_enough_data(self, gb_report):
         expected_data = {
             "region": "Blaenau Gwent",
             "retail_and_recreation": -0.75,
@@ -361,7 +361,7 @@ class TestReportParser:
             "residential_significant": False,
         }
         parser = ReportParser()
-        regions = parser.parse_regions(gb_fixture)
+        regions = parser.parse_regions(gb_report)
         blaenau = [
             region for region in regions if region["region"] == expected_data["region"]
         ]
@@ -372,22 +372,22 @@ class TestReportParser:
 
 
 @pytest.fixture(scope="session")
-def br_fixture():
+def br_report():
     return _read_fixture("2020-03-29_BR_Mobility_Report_en.txt")
 
 
 @pytest.fixture(scope="session")
-def gb_fixture():
+def gb_report():
     return _read_fixture("2020-03-29_GB_Mobility_Report_en.txt")
 
 
 @pytest.fixture(scope="session")
-def cz_fixture():
+def cz_report():
     return _read_fixture("2020-03-29_CZ_Mobility_Report_en.txt")
 
 
 @pytest.fixture(scope="session")
-def kr_fixture():
+def kr_report():
     return _read_fixture("2020-03-29_KR_Mobility_Report_en.txt")
 
 
