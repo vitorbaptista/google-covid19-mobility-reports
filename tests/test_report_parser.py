@@ -401,11 +401,250 @@ class TestReportParserKRReport(ReportParserSampleReportTests):
         return kr_report
 
 
+class TestReportParserARReport(ReportParserSampleReportTests):
+    expected_num_of_rows = 25
+    expected_countrywide = {
+        "retail_and_recreation": -0.86,
+        "grocery_and_pharmacy": -0.61,
+        "parks": -0.89,
+        "transit_stations": -0.80,
+        "workplaces": -0.57,
+        "residential": 0.27,
+    }
+    expected_regions = [
+        {
+            "retail_and_recreation": -0.9,
+            "grocery_and_pharmacy": -0.48,
+            "parks": -0.91,
+            "transit_stations": -0.82,
+            "workplaces": -0.69,
+            "residential": 0.31,
+            "region": "Buenos Aires",
+        },
+        {
+            "retail_and_recreation": -0.88,
+            "grocery_and_pharmacy": -0.6,
+            "parks": -0.91,
+            "transit_stations": -0.79,
+            "workplaces": -0.6,
+            "residential": 0.26,
+            "region": "Buenos Aires Province",
+        },
+        {
+            "retail_and_recreation": -0.71,
+            "grocery_and_pharmacy": -0.46,
+            "parks": -0.78,
+            "transit_stations": -0.81,
+            "workplaces": -0.35,
+            "residential": 0.29,
+            "region": "Catamarca Province",
+        },
+        {
+            "retail_and_recreation": -0.79,
+            "grocery_and_pharmacy": -0.63,
+            "parks": -0.83,
+            "transit_stations": -0.92,
+            "workplaces": -0.48,
+            "residential": 0.24,
+            "region": "Chaco Province",
+        },
+        {
+            "retail_and_recreation": -0.92,
+            "grocery_and_pharmacy": -0.91,
+            "parks": -0.94,
+            "transit_stations": -0.93,
+            "workplaces": -0.62,
+            "residential": 0.28,
+            "region": "Chubut Province",
+        },
+        {
+            "retail_and_recreation": -0.88,
+            "grocery_and_pharmacy": -0.66,
+            "parks": -0.9,
+            "transit_stations": -0.91,
+            "workplaces": -0.57,
+            "residential": 0.3,
+            "region": "Cordoba",
+        },
+        {
+            "retail_and_recreation": -0.8,
+            "grocery_and_pharmacy": -0.63,
+            "parks": -0.88,
+            "transit_stations": -0.89,
+            "workplaces": -0.47,
+            "residential": 0.25,
+            "region": "Corrientes",
+        },
+        {
+            "retail_and_recreation": -0.87,
+            "grocery_and_pharmacy": -0.65,
+            "parks": -0.93,
+            "transit_stations": -0.9,
+            "workplaces": -0.54,
+            "residential": 0.29,
+            "region": "Entre Rios",
+        },
+        {
+            "retail_and_recreation": -0.76,
+            "grocery_and_pharmacy": -0.53,
+            "parks": -0.82,
+            "transit_stations": -0.71,  # TODO: Add not enough data marker
+            "workplaces": -0.37,
+            "residential": 0.21,
+            "region": "Formosa Province",
+        },
+        {
+            "retail_and_recreation": -0.8,
+            "grocery_and_pharmacy": -0.55,
+            "parks": -0.83,
+            "transit_stations": -0.92,
+            "workplaces": -0.44,
+            "residential": 0.27,
+            "region": "Jujuy",
+        },
+        {
+            "retail_and_recreation": -0.88,
+            "grocery_and_pharmacy": -0.72,
+            "parks": -0.88,
+            "transit_stations": -0.87,
+            "workplaces": -0.56,
+            "residential": 0.28,
+            "region": "La Pampa",
+        },
+        {
+            "retail_and_recreation": -0.7,
+            "grocery_and_pharmacy": -0.46,
+            "parks": -0.84,
+            "transit_stations": -0.86,
+            "workplaces": -0.4,
+            "residential": 0.26,
+            "region": "La Rioja Province",
+        },
+        {
+            "retail_and_recreation": -0.81,
+            "grocery_and_pharmacy": -0.56,
+            "parks": -0.84,
+            "transit_stations": -0.72,
+            "workplaces": -0.49,
+            "residential": 0.29,
+            "region": "Mendoza Province",
+        },
+        {
+            "retail_and_recreation": -0.83,
+            "grocery_and_pharmacy": -0.66,
+            "parks": -0.85,
+            "transit_stations": -0.92,
+            "workplaces": -0.51,
+            "residential": 0.27,
+            "region": "Misiones Province",
+        },
+        {
+            "retail_and_recreation": -0.96,
+            "grocery_and_pharmacy": -0.95,
+            "parks": -0.95,
+            "transit_stations": -0.92,
+            "workplaces": -0.72,
+            "residential": 0.33,
+            "region": "Neuquen",
+        },
+        {
+            "retail_and_recreation": -0.9,
+            "grocery_and_pharmacy": -0.72,
+            "parks": -0.92,
+            "transit_stations": -0.96,
+            "workplaces": -0.55,
+            "residential": 0.29,
+            "region": "Río Negro",
+        },
+        {
+            "retail_and_recreation": -0.82,
+            "grocery_and_pharmacy": -0.55,
+            "parks": -0.84,
+            "transit_stations": -0.76,
+            "workplaces": -0.47,
+            "residential": 0.26,
+            "region": "Salta Province",
+        },
+        {
+            "retail_and_recreation": -0.76,
+            "grocery_and_pharmacy": -0.5,
+            "parks": -0.8,
+            "transit_stations": -0.87,
+            "workplaces": -0.46,
+            "residential": 0.28,
+            "region": "San Juan Province",
+        },
+        {
+            "retail_and_recreation": -0.85,
+            "grocery_and_pharmacy": -0.6,
+            "parks": -0.89,
+            "transit_stations": -0.91,
+            "workplaces": -0.56,
+            "residential": 0.29,
+            "region": "San Luis Province",
+        },
+        {
+            "retail_and_recreation": -0.83,
+            "grocery_and_pharmacy": -0.62,
+            "parks": -0.88,
+            "transit_stations": -0.91,
+            "workplaces": -0.56,
+            "residential": 0.24,
+            "region": "Santa Cruz Province",
+        },
+        {
+            "retail_and_recreation": -0.87,
+            "grocery_and_pharmacy": -0.63,
+            "parks": -0.89,
+            "transit_stations": -0.77,
+            "workplaces": -0.57,
+            "residential": 0.29,
+            "region": "Santa Fe Province",
+        },
+        {
+            "retail_and_recreation": -0.75,
+            "grocery_and_pharmacy": -0.49,
+            "parks": -0.75,
+            "transit_stations": -0.9,
+            "workplaces": -0.46,
+            "residential": 0.25,
+            "region": "Santiago del Estero Province",
+        },
+        {
+            "retail_and_recreation": -0.87,
+            "grocery_and_pharmacy": -0.63,
+            "parks": -0.89,
+            "transit_stations": -0.92,
+            "workplaces": -0.59,
+            "residential": 0.24,
+            "region": "Tierra del Fuego Province",
+        },
+        {
+            "retail_and_recreation": -0.81,
+            "grocery_and_pharmacy": -0.53,
+            "parks": -0.78,
+            "transit_stations": -0.9,
+            "workplaces": -0.51,
+            "residential": 0.28,
+            "region": "Tucumán",
+        },
+    ]
+
+    @pytest.fixture
+    def report(self, ar_report):
+        return ar_report
+
+
 class TestReportParser:
     def test_raise_value_error_if_cant_parse_text(self, gb_report):
         parser = ReportParser()
         with pytest.raises(ValueError):
             parser.parse(gb_report)
+
+
+@pytest.fixture(scope="session")
+def ar_report():
+    return _read_fixture("2020-03-29_AR_Mobility_Report_en.txt")
 
 
 @pytest.fixture(scope="session")
