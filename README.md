@@ -1,3 +1,5 @@
+_This project is archived. Google now provides the full data as a CSV, so it isn't needed anymore. _
+
 # Google COVID-19 Mobility Reports
 
 Archive of the [Google COVID-19 Mobility Reports'][google-reports] PDFs and their data extracted
